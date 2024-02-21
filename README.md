@@ -1,32 +1,41 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# The Railway Inn - Employee Portal
 
-Welcome,
+Image
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+The Railway Inn are an independent pub company based in the West-Midlands, United Kingdom. Having recently changed ownership, the new owners are looking to grow the business and take it to new heights. With an influx of new hires, it has become clear to the owners that the current pen & paper method of handling the books simply isn't going to suffice to the scale they are aiming for. In turn, the new Railways Inn Employee Portal aims to automize this process for the owners, whereby they can enter employee details onto a databse, as well as calculate the wages for the employees. 
 
-## Reminders
+# Contents
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+# Introduction
 
-## Creating the Heroku app
+# Project
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+## User Goals
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## Site Owner Goals
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+# Pre-Development
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+# Development
 
-Connect your GitHub repository and deploy as normal.
+# Features
 
-## Constraints
+# Google Sheets
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+# Techonlogies Used
 
----
+# Resources
 
-Happy coding!
+# Testing
+
+# Future Updates
+
+# Deployment
+
+# Validation
+
+# Bugs
+
+# Credits
+
+# Acknowledgements
