@@ -38,18 +38,22 @@ def get_user_option():
     This function displays the options to the user and then
     asks the user to enter a letter corresponding to the options
     """
-
     print('Welcome to the Railway Inn Employee Portal \n')
-    print('Please enter a letter corresponding to an option:')
-    print('A - Create a new employee')
-    print('B - Update an existing employee')
-    print('C - Delete an exisitng employee')
-    print('D - Calculate wages of an exisitng employee\n')
 
-    user_input = input("Enter an option: ")
-    user_input = user_input.upper()
-    validate_user_option_input(user_input)
-    display_user_option(user_input)
+    while True:
+        print('Please enter a letter corresponding to an option:')
+        print('A - Create a new employee')
+        print('B - Update an existing employee')
+        print('C - Delete an exisitng employee')
+        print('D - Calculate wages of an exisitng employee\n')
+
+        user_input = input("Enter an option: ")
+        user_input = user_input.upper()
+
+        if validate_user_option_input(user_input):
+            break
+            print('Getting the desired option... \n')    
+            display_user_option(user_input)
 
 def validate_user_option_input(inp):
     """
@@ -63,14 +67,17 @@ def validate_user_option_input(inp):
                 f"Please enter a value of A, B, C or D. You entered {inp}"
             )
     except ValueError as e:
-        print(f"Invalid data: {e}. Please try again")
+        print(f"Invalid data: {e}. Please try again\n")
+        return False
+    return True
 
 def display_user_option(inp):
     """
     This function takes the user's input and displays
     the relative option in the terminal
     """
-    print('Getting the desired option... \n')
+
+    
     if inp == 'A':
         print('You chose A')
     elif inp == 'B':
