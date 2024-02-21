@@ -51,9 +51,9 @@ def get_user_option():
         user_input = user_input.upper()
 
         if validate_user_option_input(user_input):
-            break
             print('Getting the desired option... \n')    
             display_user_option(user_input)
+            break
 
 def validate_user_option_input(inp):
     """
@@ -77,14 +77,36 @@ def display_user_option(inp):
     the relative option in the terminal
     """
 
-    
     if inp == 'A':
-        print('You chose A')
+        display_create_employee()
     elif inp == 'B':
         print('You chose B')
     elif inp == 'C':
         print('You chose C')
     elif inp == 'D':
         print('You chose D')
+
+def display_create_employee():
+    new_employee = []
+
+    print('Create Employee Selected\n')
+    first_name = input("Please enter the first name of your new employee: ")
+    new_employee.append(first_name)
+
+    last_name = input("Please enter the last name of your new employee: ")
+    new_employee.append(last_name)
+
+    employee_no = input("Please enter the employee number: ")
+    new_employee.append(employee_no)
+
+    contract_hours = input("Please enter the contracted hours of your new employee: ")
+    new_employee.append(contract_hours)
+
+    wage = input("Please enter the wage of your new employee: ")
+    new_employee.append(wage)
+
+    print(new_employee)
+
+
 
 get_user_option()
