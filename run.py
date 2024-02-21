@@ -48,8 +48,8 @@ def get_user_option():
 
     user_input = input("Enter an option: ")
     user_input = user_input.upper()
-    print(user_input)
     validate_user_option_input(user_input)
+    display_user_option(user_input)
 
 def validate_user_option_input(inp):
     """
@@ -64,5 +64,20 @@ def validate_user_option_input(inp):
             )
     except ValueError as e:
         print(f"Invalid data: {e}. Please try again")
+
+def display_user_option(inp):
+    """
+    This function takes the user's input and displays
+    the relative option in the terminal
+    """
+    print('Getting the desired option... \n')
+    if inp == 'A':
+        print('You chose A')
+    elif inp == 'B':
+        print('You chose B')
+    elif inp == 'C':
+        print('You chose C')
+    elif inp == 'D':
+        print('You chose D')
 
 get_user_option()
