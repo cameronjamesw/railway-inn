@@ -131,6 +131,8 @@ def display_create_employee():
     print(f"Contracted Hours = {contract_hours} hours per week")
     print(f"Wage = £{wage}")
 
+    convert_to_string(new_employee)
+
 def letter_validation(inp):
     """
     This function checks to see if the values 
@@ -160,5 +162,15 @@ def numeric_validation(inp):
         print(f"\nInvalid Data {e}. Please try again\n")
         return False
     return True
-    
+
+def convert_to_string(list):
+    """
+    This function converts the parameter of 
+    a list into a string through joining it to an
+    empty string
+    """
+    new_employee_str = ', '.join([str(item) for item in list])
+    print(new_employee_str)
+
+
 get_user_option()
