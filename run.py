@@ -32,12 +32,16 @@ class Employee():
 
 Hannah = Employee('Hannah', 'Obrien', 2, 40, '£15')
 
-print('Welcome to the Railway Inn Employee Portal \n')
-print('Please enter a letter corresponding to an option:')
-print('A - Create a new employee')
-print('B - Update an existing employee')
-print('C - Delete an exisitng employee')
-print('D - Calculate wages of an exisitng employee\n')
 
-user_input = input("Enter an option: ")
-print(user_input)
+def get_user_option():
+    print('Welcome to the Railway Inn Employee Portal \n')
+    print('Please enter a letter corresponding to an option:')
+    print('A - Create a new employee')
+    print('B - Update an existing employee')
+    print('C - Delete an exisitng employee')
+    print('D - Calculate wages of an exisitng employee\n')
+
+    user_input = input("Enter an option: ")
+    print(user_input)
+
+get_user_option()
