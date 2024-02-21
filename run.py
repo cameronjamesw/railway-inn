@@ -104,14 +104,26 @@ def display_create_employee():
         if letter_validation(last_name):
             break
 
-    employee_no = input("Please enter the employee number: ")
-    new_employee.append(employee_no)
+    while True:
+        employee_no = input("Please enter the employee number: ")
+        new_employee.append(employee_no)
 
-    contract_hours = input("Please enter the contracted hours of your new employee: ")
-    new_employee.append(contract_hours)
+        if numeric_validation(employee_no):
+            break
 
-    wage = input("Please enter the wage of your new employee: ")
-    new_employee.append(wage)
+    while True:
+        contract_hours = input("Please enter the contracted hours of your new employee: ")
+        new_employee.append(contract_hours)
+
+        if numeric_validation(contract_hours):
+            break
+
+    while True:
+        wage = input("Please enter the wage of your new employee: ")
+        new_employee.append(wage)
+
+        if numeric_validation(wage):
+            break
 
     print(f"\nFirst Name = {first_name}")
     print(f"Last Name = {last_name}")
@@ -127,7 +139,7 @@ def letter_validation(inp):
     try:
         if inp.isalpha() != True:
             raise ValueError (
-                f"Field must only contain [A-Z] or [a-z]. You entered {inp}."
+                f"Field must only contain characters [A-Z] or [a-z]. You entered {inp}."
         )
     except ValueError as e:
         print(f"\nInvalid data {e}. Please try again\n")
@@ -139,4 +151,14 @@ def numeric_validation(inp):
     This function checks to see if the values
     entered are numeric or not
     """
+    try:
+        if inp.isnumeric() != True:
+            raise ValueError (
+                f"Field must only contain characters [0-9]. You entered {inp}."
+            )
+    except ValueError as e:
+        print(f"\nInvalid Data {e}. Please try again\n")
+        return False
+    return True
+    
 get_user_option()
