@@ -131,7 +131,8 @@ def display_create_employee():
     print(f"Contracted Hours = {contract_hours} hours per week")
     print(f"Wage = £{wage}")
 
-    convert_to_string(new_employee)
+    
+    push_new_employee(new_employee)
 
 def letter_validation(inp):
     """
@@ -170,7 +171,12 @@ def convert_to_string(list):
     empty string
     """
     new_employee_str = ', '.join([str(item) for item in list])
-    print(new_employee_str)
+    return new_employee_str
 
+def push_new_employee(employee_data):
+    print('Updating employee database...\n')
+    employee_page.append_row(employee_data)
+
+    print('Employee database updated!')
 
 get_user_option()
