@@ -34,6 +34,11 @@ Hannah = Employee('Hannah', 'Obrien', 2, 40, '£15')
 
 
 def get_user_option():
+    """
+    This function displays the options to the user and then
+    asks the user to enter a letter corresponding to the options
+    """
+
     print('Welcome to the Railway Inn Employee Portal \n')
     print('Please enter a letter corresponding to an option:')
     print('A - Create a new employee')
@@ -42,6 +47,22 @@ def get_user_option():
     print('D - Calculate wages of an exisitng employee\n')
 
     user_input = input("Enter an option: ")
+    user_input = user_input.upper()
     print(user_input)
+    validate_user_option_input(user_input)
+
+def validate_user_option_input(inp):
+    """
+    This function checks the option input that the user has 
+    input, if it is not a letter between A - D then it returns
+    and error
+    """
+    try:
+        if inp not in ['A', 'B', 'C', 'D']:
+            raise ValueError(
+                f"Please enter a value of A, B, C or D. You entered {inp}"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}. Please try again")
 
 get_user_option()
