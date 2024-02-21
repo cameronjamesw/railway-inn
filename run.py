@@ -90,13 +90,19 @@ def display_create_employee():
     new_employee = []
 
     print('Create Employee Selected\n')
-    first_name = input("Please enter the first name of your new employee: ")
-    new_employee.append(first_name)
-    letter_validation(first_name)
+    while True:
+        first_name = input("Please enter the first name of your new employee: ")
+        new_employee.append(first_name)
 
-    last_name = input("Please enter the last name of your new employee: ")
-    new_employee.append(last_name)
-    letter_validation(last_name)
+        if letter_validation(first_name):
+            break
+
+    while True:
+        last_name = input("Please enter the last name of your new employee: ")
+        new_employee.append(last_name)
+
+        if letter_validation(last_name):
+            break
 
     employee_no = input("Please enter the employee number: ")
     new_employee.append(employee_no)
@@ -115,14 +121,22 @@ def display_create_employee():
 
 def letter_validation(inp):
     """
-    This functions chekcs to see if the values 
+    This function checks to see if the values 
     entered are alphabetic or not
     """
     try:
-        raise ValueError (
-            f"Field must only contain [A-Z] or [a-z]. You entered {inp}."
+        if inp.isalpha() != True:
+            raise ValueError (
+                f"Field must only contain [A-Z] or [a-z]. You entered {inp}."
         )
     except ValueError as e:
         print(f"\nInvalid data {e}. Please try again\n")
+        return False
+    return True
 
+def numeric_validation(inp):
+    """
+    This function checks to see if the values
+    entered are numeric or not
+    """
 get_user_option()
