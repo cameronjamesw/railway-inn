@@ -92,9 +92,11 @@ def display_create_employee():
     print('Create Employee Selected\n')
     first_name = input("Please enter the first name of your new employee: ")
     new_employee.append(first_name)
+    letter_validation(first_name)
 
     last_name = input("Please enter the last name of your new employee: ")
     new_employee.append(last_name)
+    letter_validation(last_name)
 
     employee_no = input("Please enter the employee number: ")
     new_employee.append(employee_no)
@@ -105,8 +107,22 @@ def display_create_employee():
     wage = input("Please enter the wage of your new employee: ")
     new_employee.append(wage)
 
-    print(new_employee)
+    print(f"\nFirst Name = {first_name}")
+    print(f"Last Name = {last_name}")
+    print(f"Employee No. = #{employee_no}")
+    print(f"Contracted Hours = {contract_hours} hours per week")
+    print(f"Wage = £{wage}")
 
-
+def letter_validation(inp):
+    """
+    This functions chekcs to see if the values 
+    entered are alphabetic or not
+    """
+    try:
+        raise ValueError (
+            f"Field must only contain [A-Z] or [a-z]. You entered {inp}."
+        )
+    except ValueError as e:
+        print(f"\nInvalid data {e}. Please try again\n")
 
 get_user_option()
