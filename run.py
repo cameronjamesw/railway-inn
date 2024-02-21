@@ -174,6 +174,10 @@ def convert_to_string(list):
     return new_employee_str
 
 def push_new_employee(employee_data):
+    """
+    This function takes the newly created employee
+    and pushes it to the Google Sheet
+    """
     print('Updating employee database...\n')
     employee_page.append_row(employee_data)
 
