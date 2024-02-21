@@ -16,6 +16,10 @@ The Railway Inn are an independent pub company based in the West-Midlands, Unite
 
 # Pre-Development
 
+Here is an image of the flowchart that I created prior to development to help me visualise how the project is going to run.
+
+![An image of a flowchart that I have created](assets/images/Flowcharts.jpeg)
+
 # Development
 
 # Features
