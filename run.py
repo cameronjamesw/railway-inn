@@ -131,6 +131,10 @@ def display_create_employee():
     print(f"Contracted Hours = {contract_hours} hours per week")
     print(f"Wage = £{wage}")
 
+    while True:    
+        if user_check():
+            break
+
     
     push_new_employee(new_employee)
 
@@ -173,12 +177,33 @@ def convert_to_string(list):
     new_employee_str = ', '.join([str(item) for item in list])
     return new_employee_str
 
+def user_check():
+    """
+    This function allows the user to check if
+    the inputs they have entered are correct
+    """
+    user_check = input("\nIs the data you entered correct? (Y/N): ")
+    letter_validation(user_check)
+
+    try:
+        if user_check == 'Y':
+            print('You answered yes')
+            return True
+        elif user_check == 'N':
+            print('You answered no')
+            display_create_employee()
+            pass
+            return True
+    except ValueError as e:
+        print(f"Invalid Data {e}, you entered {user_check}")
+        return False
+
 def push_new_employee(employee_data):
     """
     This function takes the newly created employee
     and pushes it to the Google Sheet
     """
-    print('Updating employee database...\n')
+    print('\nUpdating employee database...\n')
     employee_page.append_row(employee_data)
 
     print('Employee database updated!')
