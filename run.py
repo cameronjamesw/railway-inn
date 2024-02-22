@@ -106,9 +106,11 @@ def display_create_employee():
 
     while True:
         employee_no = input("Please enter the employee number: ")
-        new_employee.append(employee_no)
+        
 
         if numeric_validation(employee_no):
+            employee_no = f"#{employee_no}"
+            new_employee.append(employee_no)
             break
 
     while True:
@@ -120,16 +122,21 @@ def display_create_employee():
 
     while True:
         wage = input("Please enter the wage of your new employee: ")
-        new_employee.append(wage)
+        
 
         if numeric_validation(wage):
+            wage = f"£{wage}"
+            new_employee.append(wage)
             break
 
     print(f"\nFirst Name = {first_name}")
     print(f"Last Name = {last_name}")
-    print(f"Employee No. = #{employee_no}")
+    print(f"Employee No. = {employee_no}")
     print(f"Contracted Hours = {contract_hours} hours per week")
-    print(f"Wage = £{wage}")
+    print(f"Wage = {wage}")
+
+    
+    
 
     while True:    
         if user_check():
