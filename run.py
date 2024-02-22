@@ -81,6 +81,7 @@ def display_user_option(inp):
     if inp == 'A':
         display_create_employee()
     elif inp == 'B':
+        print('Selected Update Employee\n')
         display_update_employee()
     elif inp == 'C':
         print('You chose C')
@@ -232,9 +233,12 @@ def push_new_employee(employee_data):
     """
     print('\nUpdating employee database...\n')
     employee_page.append_row(employee_data)
-    
+    print('Employee database updated!\n')
+
+    main_menu_input()
+
+def main_menu_input():
     while True:
-        print('Employee database updated!\n')
         user_input = input('Return to the main menu? (Y/N): \n')
 
         if return_to_main_menu(user_input):
@@ -277,16 +281,14 @@ def display_update_employee():
     to the user. It gets the two inputs of the first and 
     last name.
     """
-    print('Selected Update Employee\n')
-    print('Please enter the first name of the employee you wish to update..\n')
+    print('\nPlease enter the first name of the employee you wish to update..')
     f_name = input('Employee First Name: ')
-    print('Please enter the last name of the employee you wish to update..\n')
-    l_name = input('Employee Last Name: \n')
-    print(isinstance(Hannah, Employee))
+    print('\nPlease enter the last name of the employee you wish to update..')
+    l_name = input('Employee Last Name: ')
 
     concat_input = concatonate_inputs(f_name, l_name)
-
     check_name(concat_input)
+    
 
 def concatonate_inputs(input1, input2):
     """
@@ -302,6 +304,7 @@ def check_name(name):
     This function takes the full name from concatenate_inputs function,
     and checks to see if the name exists in the database.
     """
+    
     column_1 = employee_page.col_values(1)
     column_slice = slice(1, -1)
     first_name_column = column_1[column_slice]
@@ -313,6 +316,47 @@ def check_name(name):
         full_name = f"{fname} {lname}"
         database_names.append(full_name)
 
-    print(name in database_names)
+    try:
+        if name in database_names:
+            print(f'You have entered {name}')
+        else:
+            raise ValueError (
+                f'{name} does not exist in the Employee Database'
+            )
+    except ValueError as e:
+        print(f'\nInvalid data {e}. Please try another name.')
+    
+   
+    if name not in database_names:
+        
+        while True:
+            if try_again():
+                break
+        
+
+def try_again():
+    """
+    This function prints the try again text to
+    the terminal. Anything other than "Y" or "N" raises
+    an error to the terminal. 
+    """
+    user_input = input(f"Do you want to try again? (Y/N): ")
+    user_input = user_input.upper()
+
+    try:    
+        if user_input == 'Y':
+            display_update_employee()
+            return True
+        elif user_input == 'N':
+            main_menu_input()
+            return True
+        else:
+            raise ValueError (
+                f'Please enter a value of "Y" or "N", you entered {user_input}'
+                )
+    except ValueError as e:
+        print(f'Invalid input: {e}. Please try again')
+        return False
+            
     
 get_user_option()
