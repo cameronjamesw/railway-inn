@@ -232,8 +232,44 @@ def push_new_employee(employee_data):
     """
     print('\nUpdating employee database...\n')
     employee_page.append_row(employee_data)
+    
+    while True:
+        print('Employee database updated!\n')
+        user_input = input('Return to the main menu? (Y/N): \n')
 
-    print('Employee database updated!')
+        if return_to_main_menu(user_input):
+            break
+
+def return_to_main_menu(inp):
+    """
+    This function allows the user to return
+    to the main menu
+    """
+    inp = inp.upper()
+
+    try:
+        if inp == 'Y':
+            print('You answered yes')
+            os.system('cls||clear')
+            get_user_option()
+            return True
+        elif inp == 'N':
+            confirm = input('Are you sure you want to exit the application? (Y/N): ')
+            confirm = confirm.upper()
+            try:
+                if confirm == 'Y':
+                    os.system('cls||clear')
+                elif confirm == 'N':
+                    confirm = 'Y'
+                    return_to_main_menu(confirm)
+            except ValueError as e:
+                print(f"Invalid Data {e}, you entered {inp}")
+                return False
+
+            return True
+    except ValueError as e:
+        print(f"Invalid Data {e}, you entered {inp}")
+        return False
 
 def display_update_employee():
     print('Selected Update Employee\n')
