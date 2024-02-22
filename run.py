@@ -183,6 +183,7 @@ def user_check():
     the inputs they have entered are correct
     """
     user_check = input("\nIs the data you entered correct? (Y/N): ")
+    user_check = user_check.upper()
     letter_validation(user_check)
 
     try:
