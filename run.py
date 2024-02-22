@@ -106,7 +106,6 @@ def display_create_employee():
 
     while True:
         employee_no = input("Please enter the employee number: ")
-        
 
         if numeric_validation(employee_no):
             employee_no = f"#{employee_no}"
@@ -123,7 +122,6 @@ def display_create_employee():
     while True:
         wage = input("Please enter the wage of your new employee: ")
         
-
         if numeric_validation(wage):
             wage = f"£{wage}"
             new_employee.append(wage)
@@ -135,15 +133,9 @@ def display_create_employee():
     print(f"Contracted Hours = {contract_hours} hours per week")
     print(f"Wage = {wage}")
 
-    
-    
-
     while True:    
-        if user_check():
+        if user_check(new_employee):
             break
-
-    
-    push_new_employee(new_employee)
 
 def letter_validation(inp):
     """
@@ -184,7 +176,7 @@ def convert_to_string(list):
     new_employee_str = ', '.join([str(item) for item in list])
     return new_employee_str
 
-def user_check():
+def user_check(data):
     """
     This function allows the user to check if
     the inputs they have entered are correct
@@ -196,6 +188,7 @@ def user_check():
     try:
         if user_check == 'Y':
             print('You answered yes')
+            push_new_employee(data)
             return True
         elif user_check == 'N':
             print('You answered no')
