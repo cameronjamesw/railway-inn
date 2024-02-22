@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+import os
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -192,6 +193,7 @@ def user_check(data):
             return True
         elif user_check == 'N':
             print('You answered no')
+            os.system('cls||clear')
             display_create_employee()
             pass
             return True
