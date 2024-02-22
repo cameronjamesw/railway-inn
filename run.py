@@ -272,6 +272,11 @@ def return_to_main_menu(inp):
         return False
 
 def display_update_employee():
+    """
+    This function displays the update employee option
+    to the user. It gets the two inputs of the first and 
+    last name.
+    """
     print('Selected Update Employee\n')
     print('Please enter the first name of the employee you wish to update..\n')
     f_name = input('Employee First Name: ')
@@ -284,10 +289,19 @@ def display_update_employee():
     check_name(concat_input)
 
 def concatonate_inputs(input1, input2):
+    """
+    This function takes the two inputs from update_employees
+    and concatenates them together into one string. Returns
+    a full name.
+    """
     full_name = f"{input1} {input2}"
     return full_name
 
 def check_name(name):
+    """
+    This function takes the full name from concatenate_inputs function,
+    and checks to see if the name exists in the database.
+    """
     column_1 = employee_page.col_values(1)
     column_slice = slice(1, -1)
     first_name_column = column_1[column_slice]
