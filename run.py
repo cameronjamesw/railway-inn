@@ -273,6 +273,32 @@ def return_to_main_menu(inp):
 
 def display_update_employee():
     print('Selected Update Employee\n')
+    print('Please enter the first name of the employee you wish to update..\n')
+    f_name = input('Employee First Name: ')
     print('Please enter the last name of the employee you wish to update..\n')
-    input('Employee Last Name: ') 
+    l_name = input('Employee Last Name: \n')
+    print(isinstance(Hannah, Employee))
+
+    concat_input = concatonate_inputs(f_name, l_name)
+
+    check_name(concat_input)
+
+def concatonate_inputs(input1, input2):
+    full_name = f"{input1} {input2}"
+    return full_name
+
+def check_name(name):
+    column_1 = employee_page.col_values(1)
+    column_slice = slice(1, -1)
+    first_name_column = column_1[column_slice]
+    column_2 = employee_page.col_values(2)
+    second_name_column = column_2[column_slice]
+
+    database_names = []
+    for fname, lname in zip(first_name_column, second_name_column):
+        full_name = f"{fname} {lname}"
+        database_names.append(full_name)
+
+    print(name in database_names)
+    
 get_user_option()
