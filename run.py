@@ -81,7 +81,7 @@ def display_user_option(inp):
     if inp == 'A':
         display_create_employee()
     elif inp == 'B':
-        print('You chose B')
+        display_update_employee()
     elif inp == 'C':
         print('You chose C')
     elif inp == 'D':
@@ -201,7 +201,6 @@ def convert_to_class_list(list):
             new_list.append(item)
     return new_list
 
-
 def user_check(data):
     """
     This function allows the user to check if
@@ -236,4 +235,8 @@ def push_new_employee(employee_data):
 
     print('Employee database updated!')
 
+def display_update_employee():
+    print('Selected Update Employee\n')
+    print('Please enter the last name of the employee you wish to update..\n')
+    input('Employee Last Name: ') 
 get_user_option()
