@@ -21,7 +21,11 @@ The Railway Inn Employee Portal allows employees of the Railway Inn to view thei
 
 ## User Goals
 
+The user will be able to access their expected pay through the employee portal prior to getting paid by the Railway Inn.
+
 ## Site Owner Goals
+
+With the recent change of ownership of the Railway Inn, the new owners see it fit to implement an employee portal which will more than halve the work of the pub-mamager. Here the manager (site owner) will be able to create an employee profile for any new employee that joins the business through following simple instructions and entering inputs. Upon the rota being entered into the Railway Inn Google Sheet, the manager will be able to use the employee portal to calculate the expected pay of any given employee granted they exist in the database. 
 
 # Pre-Development
 
