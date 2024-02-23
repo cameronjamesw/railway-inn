@@ -8,7 +8,16 @@ The Railway Inn are an independent pub company based in the West-Midlands, Unite
 
 # Introduction
 
+The Railway Inn Employee Portal allows employees of the Railway Inn to view their expected pay based off of a rota that has been provided by the company through Google Sheets. The portal allows HR to create employee profiles within the portal which will allow easy access to key information of any given employee with no hassle.
+
 # Project
+
+- The aim of this project is to:
+    - Allows the manager a way of accessing employee data with the click of a button
+    - Save time for the manager of the Railway Inn by automatically calculating pay
+    - Accesses hours worked and calculate pay for a given employee
+    - Allows employees of the Railway Inn a way of accessing their expected pay
+    - Provides clear instructions of how to utilise the employee portal
 
 ## User Goals
 
