@@ -1,6 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 import os
+from colorama import Fore, Back, Style
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -39,10 +40,10 @@ def get_user_option():
     This function displays the options to the user and then
     asks the user to enter a letter corresponding to the options
     """
-    print('Welcome to the Railway Inn Employee Portal \n')
+    print(Fore.YELLOW + 'Welcome to the Railway Inn Employee Portal \n')
 
     while True:
-        print('Please enter a letter corresponding to an option:')
+        print(Style.RESET_ALL + 'Please enter a letter corresponding to an option:')
         print('A - Create a new employee')
         print('B - Update an existing employee')
         print('C - Delete an exisitng employee')
