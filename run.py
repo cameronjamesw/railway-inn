@@ -286,6 +286,9 @@ def display_update_employee():
     f_name = input('Employee First Name: ')
     print('\nPlease enter the last name of the employee you wish to update..')
     l_name = input('Employee Last Name: ')
+    index = column_2.index(l_name)
+    user_data = data[index]
+    print(user_data)
 
     concat_input = concatonate_inputs(f_name, l_name)
     check_name(concat_input)
@@ -305,13 +308,6 @@ def check_name(name):
     This function takes the full name from concatenate_inputs function,
     and checks to see if the name exists in the database.
     """
-    
-    column_1 = employee_page.col_values(1)
-    column_slice = slice(1, -1)
-    first_name_column = column_1[column_slice]
-    column_2 = employee_page.col_values(2)
-    second_name_column = column_2[column_slice]
-
     database_names = []
     for fname, lname in zip(first_name_column, second_name_column):
         full_name = f"{fname} {lname}"
@@ -320,6 +316,7 @@ def check_name(name):
     try:
         if name in database_names:
             print(f'You have entered {name}')
+    
         else:
             raise ValueError (
                 f'{name} does not exist in the Employee Database'
@@ -358,6 +355,12 @@ def try_again():
     except ValueError as e:
         print(f'Invalid input: {e}. Please try again')
         return False
-            
-    
+
+column_1 = employee_page.col_values(1)
+column_slice = slice(1, -1)
+first_name_column = column_1[column_slice]
+column_2 = employee_page.col_values(2)
+second_name_column = column_2[column_slice]
+
+print(column_2[3])    
 get_user_option()
