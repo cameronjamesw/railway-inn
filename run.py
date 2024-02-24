@@ -19,6 +19,12 @@ employee_page = SHEET.worksheet('Employees')
 data = employee_page.get_all_values()
 row = data[-1]
 
+column_1 = employee_page.col_values(1)
+column_slice = slice(1, -1)
+first_name_column = column_1[column_slice]
+column_2 = employee_page.col_values(2)
+second_name_column = column_2[column_slice]
+
 class Employee():
 
     def __init__(self, first_name, last_name, employee_no, contract_hours, wage):
@@ -33,7 +39,6 @@ class Employee():
         print(list)
 
 Hannah = Employee('Hannah', 'Obrien', 2, 40, '£15')
-
 
 def get_user_option():
     """
@@ -286,9 +291,7 @@ def display_update_employee():
     f_name = input('Employee First Name: ')
     print('\nPlease enter the last name of the employee you wish to update..')
     l_name = input('Employee Last Name: ')
-    index = column_2.index(l_name)
-    user_data = data[index]
-    print(user_data)
+    display_employee_details(l_name)
 
     concat_input = concatonate_inputs(f_name, l_name)
     check_name(concat_input)
@@ -356,11 +359,14 @@ def try_again():
         print(f'Invalid input: {e}. Please try again')
         return False
 
-column_1 = employee_page.col_values(1)
-column_slice = slice(1, -1)
-first_name_column = column_1[column_slice]
-column_2 = employee_page.col_values(2)
-second_name_column = column_2[column_slice]
+def display_employee_details(lname):
+    index = column_2.index(lname)
+    user_data = data[index]
+    print(f'\nFirst Name = {user_data[0]}')
+    print(f'Last Name = {user_data[1]}')
+    print(f'Employee Number = {user_data[2]}')
+    print(f'Contracted Hours = {user_data[3]} hours p/wk')
+    print(f'Wage = {user_data[4]} p/hr')
 
 print(column_2[3])    
 get_user_option()
