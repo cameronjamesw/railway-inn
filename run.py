@@ -50,9 +50,8 @@ def get_user_option():
     while True:
         print(Style.RESET_ALL + 'Please enter a letter corresponding to an option:')
         print('A - Create a new employee')
-        print('B - Update an existing employee')
-        print('C - Delete an exisitng employee')
-        print('D - Calculate wages of an exisitng employee\n')
+        print('B - Display existing employee')
+        print('C - Calculate wages of an exisitng employee\n')
 
         user_input = input("Enter an option: ")
         user_input = user_input.upper()
@@ -69,9 +68,9 @@ def validate_user_option_input(inp):
     and error
     """
     try:
-        if inp not in ['A', 'B', 'C', 'D']:
+        if inp not in ['A', 'B', 'C']:
             raise ValueError(
-                f"Please enter a value of A, B, C or D. You entered {inp}"
+                f"Please enter a value of A, B or C. You entered {inp}"
             )
     except ValueError as e:
         print(f"Invalid data: {e}. Please try again\n")
@@ -87,12 +86,10 @@ def display_user_option(inp):
     if inp == 'A':
         display_create_employee()
     elif inp == 'B':
-        print('Selected Update Employee\n')
-        display_update_employee()
+        print('Selected Display Employee\n')
+        display_employee()
     elif inp == 'C':
-        print('You chose C')
-    elif inp == 'D':
-        print('You chose D')
+        get_employee_name()
 
 def display_create_employee():
     new_employee = []
@@ -281,22 +278,21 @@ def return_to_main_menu(inp):
         print(f"Invalid Data {e}, you entered {inp}")
         return False
 
-def display_update_employee():
+def display_employee():
     """
     This function displays the update employee option
     to the user. It gets the two inputs of the first and 
     last name.
     """
-    print('\nPlease enter the first name of the employee you wish to update..')
+    print('\nPlease enter the first name of the employee you wish to display..')
     f_name = input('Employee First Name: ')
-    print('\nPlease enter the last name of the employee you wish to update..')
+    print('\nPlease enter the last name of the employee you wish to display..')
     l_name = input('Employee Last Name: ')
     display_employee_details(l_name)
 
     concat_input = concatonate_inputs(f_name, l_name)
     check_name(concat_input)
     
-
 def concatonate_inputs(input1, input2):
     """
     This function takes the two inputs from update_employees
@@ -332,8 +328,7 @@ def check_name(name):
         
         while True:
             if try_again():
-                break
-        
+                break     
 
 def try_again():
     """
@@ -346,7 +341,7 @@ def try_again():
 
     try:    
         if user_input == 'Y':
-            display_update_employee()
+            display_employee()
             return True
         elif user_input == 'N':
             main_menu_input()
@@ -368,5 +363,27 @@ def display_employee_details(lname):
     print(f'Contracted Hours = {user_data[3]} hours p/wk')
     print(f'Wage = {user_data[4]} p/hr')
 
-print(column_2[3])    
+def get_employee_name():
+    while True:
+        print('\nPlease enter the first name of the employee..')
+        f_name = input('Employee First Name: ')
+        if letter_validation(f_name):
+            break
+
+    while True:
+        print('\nPlease enter the last name of the employee..')
+        l_name = input('Employee Last Name: ')
+        if letter_validation(l_name):
+            break
+
+    concat_input = concatonate_inputs(f_name, l_name)
+    check_name(concat_input)
+    get_employee_hours(concat_input)
+
+def get_employee_hours(name):
+    print('\nPlease enter the total amount of hours the employee worked this pay period..')
+    hours = input('Amount of hours worked: ')
+    numeric_validation(hours)
+
+    print(f'\n{name} worked {hours} hours this pay period.')
 get_user_option()
