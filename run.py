@@ -381,9 +381,16 @@ def get_employee_name():
     get_employee_hours(concat_input)
 
 def get_employee_hours(name):
-    print('\nPlease enter the total amount of hours the employee worked this pay period..')
-    hours = input('Amount of hours worked: ')
-    numeric_validation(hours)
+    while True:
+        print('\nPlease enter the total amount of hours the employee worked this pay period..')
+        hours = input('Amount of hours worked: ')
+        if numeric_validation(hours):
+            break
 
     print(f'\n{name} worked {hours} hours this pay period.')
+    calculate_wage(name, hours)
+
+def calculate_wage(name, hours):
+    print(f"This is the name, {name}. This is the hours worked {hours}")
+    print('Calculate Wage Function')
 get_user_option()
