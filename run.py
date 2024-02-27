@@ -284,10 +284,18 @@ def display_employee():
     to the user. It gets the two inputs of the first and 
     last name.
     """
-    print('\nPlease enter the first name of the employee you wish to display..')
-    f_name = input('Employee First Name: ')
-    print('\nPlease enter the last name of the employee you wish to display..')
-    l_name = input('Employee Last Name: ')
+    while True:
+        print('\nPlease enter the first name of the employee you wish to display..')
+        f_name = input('Employee First Name: ')
+        if letter_validation(f_name):
+            break
+
+    while True:
+        print('\nPlease enter the last name of the employee you wish to display..')
+        l_name = input('Employee Last Name: ')
+        if letter_validation(l_name):
+            break
+
     display_employee_details(l_name)
 
     concat_input = concatonate_inputs(f_name, l_name)
@@ -362,6 +370,7 @@ def display_employee_details(lname):
     """
     index = column_2.index(lname)
     user_data = data[index]
+    
     print(f'\nFirst Name = {user_data[0]}')
     print(f'Last Name = {user_data[1]}')
     print(f'Employee Number = {user_data[2]}')
@@ -451,8 +460,7 @@ def calculate_pay_before_tax(name, hours, wage):
     calculate the gross income of the employee without deducting
     taxes.
     """
-    wage = float(wage)
-    
+    wage = int(wage)
 
     gross_income = wage * hours
     calculate_taxes(gross_income, name)
