@@ -134,10 +134,18 @@ Granted, while testing, it did become apparent that there were underlying errors
 
 # Resources
 
+- Visual Studio Code (VSCode)
+- GitPod
+- GitHub
+- Heroku
+- Slack
+- LucidChart to create the flow chart
+
 ## Libraries
 
-[colorama Fore & Back](https://pypi.org/project/colorama/)
-[LucidChart](https://www.lucidchart.com/pages/)
+- [colorama Fore & Back](https://pypi.org/project/colorama/)
+
+- [LucidChart](https://www.lucidchart.com/pages/)
 
 # Testing
 
