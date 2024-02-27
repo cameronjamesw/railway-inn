@@ -421,21 +421,28 @@ def get_employee_hours(name, lname):
     """
     hours = get_hours(lname)
     wage = get_wage(lname)
+    hours = int(hours)
 
     while True:
-        print(f'\n{name} is contracted to work {hours} hours per week.')
-        user_input = input(f'Did {name} work their exact hours? (Y/N): ')
+        print(f'\n{name} is contracted to work {hours} hours per week ({hours * 4} hours per month).')
+        user_input = input(f'Did {name} work their contracted hours? (Y/N): ')
         user_input = user_input.upper()
         if letter_validation(user_input):
             break
-    
-    if user_input == 'Y':
-        print(f'\n{name} worked {hours} hours this pay period.')
-        calculate_pay_before_tax(name, hours, wage)
-    elif user_input == 'N':
-        new_hours = input(f'How many total hours did {name} work: ')
-        print(f'\n{name} worked {new_hours} hours this pay period.')
-        calculate_pay_before_tax(name, new_hours, wage)
+    try:
+        if user_input == 'Y':
+            print(f'\n{name} worked {hours} hours this pay period.')
+            calculate_pay_before_tax(name, hours, wage)
+        elif user_input == 'N':
+            new_hours = input(f'How many total hours did {name} work: ')
+            print(f'\n{name} worked {new_hours} hours this pay period.')
+            calculate_pay_before_tax(name, new_hours, wage)
+        else:
+            raise ValueError (
+                print(f'Please enter a value of "Y" or "N", you entered {user_input}')
+            )
+    except ValueError as e:
+        print(f'Invalid input {e}. Please try again.')
 
 
 def calculate_pay_before_tax(name, hours, wage):
@@ -444,16 +451,11 @@ def calculate_pay_before_tax(name, hours, wage):
     calculate the gross income of the employee without deducting
     taxes.
     """
-    print(f"This is the name, {name}.")
-    print(f"These are the hours worked, {hours}")
-    print(f"This is the wage, {wage:.2f} per hour")
     wage = float(wage)
-    hours = int(hours)
+    
 
     gross_income = wage * hours
-    print(gross_income)
     calculate_taxes(gross_income, name)
-    print(wage)
 
 def calculate_taxes(pay, name):
     """
