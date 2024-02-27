@@ -355,6 +355,11 @@ def try_again():
         return False
 
 def display_employee_details(lname):
+    """
+    This function takes the perameter of the last name and uses it
+    to locate the employee in the database and then display the
+    relevent employee details to the console.
+    """
     index = column_2.index(lname)
     user_data = data[index]
     print(f'\nFirst Name = {user_data[0]}')
@@ -364,6 +369,12 @@ def display_employee_details(lname):
     print(f'Wage = {user_data[4]} p/hr')
 
 def get_employee_name():
+    """
+    This function asks the user to enter the employee first name
+    and last name and will then check it against the database
+    through calling the check name function. This will also
+    concatenate the two inputs together. 
+    """
     while True:
         print('\nPlease enter the first name of the employee..')
         f_name = input('Employee First Name: ')
@@ -381,18 +392,33 @@ def get_employee_name():
     get_employee_hours(concat_input, l_name)
 
 def get_wage(lname):
+    """
+    This function will specifically get the wage of
+    the employee who's name has been passed as the parameter.
+    This function returns the result as wage.
+    """
     index = column_2.index(lname)
     user_data = data[index]
     wage = user_data[4]
     return wage
 
 def get_hours(lname):
+    """
+    This function will specifically get the contracted hours of
+    the employee who's name has been passed as the parameter.
+    This function returns the result as hours.
+    """
     index = column_2.index(lname)
     user_data = data[index]
     hours = user_data[3]
     return hours
 
 def get_employee_hours(name, lname):
+    """
+    This function will ask the user if the employee worked their
+    contracted hours, and if not will display the user an input
+    to alter the hours worked for the month.
+    """
     hours = get_hours(lname)
     wage = get_wage(lname)
 
@@ -413,9 +439,14 @@ def get_employee_hours(name, lname):
 
 
 def calculate_pay_before_tax(name, hours, wage):
+    """
+    This function takes 3 parameters of name, hours and wage. It will
+    calculate the gross income of the employee without deducting
+    taxes.
+    """
     print(f"This is the name, {name}.")
     print(f"These are the hours worked, {hours}")
-    print(f"This is the wage, {wage} per hour")
+    print(f"This is the wage, {wage:.2f} per hour")
     wage = float(wage)
     hours = int(hours)
 
@@ -425,6 +456,11 @@ def calculate_pay_before_tax(name, hours, wage):
     print(wage)
 
 def calculate_taxes(pay, name):
+    """
+    This function takes two parameters of gross pay and name.
+    This function will calculate the income tax and national insurance of
+    the employee in question.
+    """
     tax = 0.2
     national_insurance = 0.1
     national_insurance_tax = pay * national_insurance
