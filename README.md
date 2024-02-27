@@ -35,6 +35,10 @@ Here is an image of the flowchart that I created prior to development to help me
 
 # Development
 
+I have designed the project following the flowchart that I drafted. I coded the project step by step, focusing on one branch of the employee portal at a time. This would limit the amount of errors by simplifying the work load for myself as I would only be focusing on one aspect of the portal at any given time.
+
+Granted, while testing, it did become apparent that there were underlying errors and bugs within all branches of the application. However; I figured that it was best to get the skeleton of my portal coded first, and then after making a note of the bugs I could then go ahead and fix them at a later date.
+
 # Features
 
 # Google Sheets
@@ -42,6 +46,11 @@ Here is an image of the flowchart that I created prior to development to help me
 # Techonlogies Used
 
 # Resources
+
+## Libraries
+
+[colorama Fore & Back](https://pypi.org/project/colorama/)
+[LucidChart](https://www.lucidchart.com/pages/)
 
 # Testing
 
