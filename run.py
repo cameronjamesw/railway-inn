@@ -242,7 +242,7 @@ def push_new_employee(employee_data):
 
 def main_menu_input():
     while True:
-        user_input = input(Fore.WHITE + '\nReturn to the main menu? (Y/N): ')
+        user_input = input(Fore.YELLOW + '\nReturn to the main menu? (Y/N): ')
 
         if return_to_main_menu(user_input):
             break
@@ -267,10 +267,10 @@ def return_to_main_menu(inp):
                 if confirm == 'Y':
                     os.system('cls||clear')
                     return True
+
                 elif confirm == 'N':
-                    confirm = 'Y'
-                    return False
                     main_menu_input()
+                    return False
             except ValueError as e:
                 print(Fore.RED + f"Invalid Data {e}, you entered {inp}")
                 return False
@@ -302,11 +302,11 @@ def display_employee():
         l_name = l_name.capitalize()
         if letter_validation(l_name):
             break
-    
-    concat_input = concatonate_inputs(f_name, l_name)
-    check_name(concat_input, l_name)
 
-    main_menu_input()   
+    display_variable = 'display'
+
+    concat_input = concatonate_inputs(f_name, l_name)
+    check_name(concat_input, l_name, display_variable)
 
 def concatonate_inputs(input1, input2):
     """
@@ -317,7 +317,7 @@ def concatonate_inputs(input1, input2):
     full_name = f"{input1} {input2}"
     return full_name
 
-def check_name(name, l_name):
+def check_name(name, l_name, variable):
     """
     This function takes the full name from concatenate_inputs function,
     and checks to see if the name exists in the database.
@@ -345,28 +345,31 @@ def check_name(name, l_name):
     if name not in database_names:
         
         while True:
-            if try_again():
+            if try_again(variable):
                 break     
 
-def try_again():
+def try_again(variable):
     """
     This function prints the try again text to
     the terminal. Anything other than "Y" or "N" raises
     an error to the terminal. 
     """
-    user_input = input(Fore.YELLOW + f"Do you want to try again? (Y/N): ")
+    user_input = input(Fore.YELLOW + f"\nDo you want to try again? (Y/N): ")
     user_input = user_input.upper()
 
     try:    
         if user_input == 'Y':
-            display_employee()
-            return True
+            if variable == 'display':
+                display_employee()
+                return True
+            elif variable == 'calculate':
+                get_employee_name()
         elif user_input == 'N':
             main_menu_input()
             return True
         else:
             raise ValueError (
-                Fore.WHITE + f'Please enter a value of "Y" or "N", you entered {user_input}'
+                Fore.RED + f'Please enter a value of "Y" or "N", you entered {user_input}'
                 )
     except ValueError as e:
         print(Fore.RED + f'Invalid input: {e}. Please try again')
@@ -418,9 +421,22 @@ def get_employee_name():
         if letter_validation(l_name):
             break
 
+    calculate_variable = 'calculate'
+
     concat_input = concatonate_inputs(f_name, l_name)
-    check_name(concat_input, l_name)
+    check_last_name(l_name, concat_input)
+    check_name(concat_input, l_name, calculate_variable)
     get_employee_hours(concat_input, l_name)
+
+def check_last_name(l_name, name):
+
+    try:
+        if l_name not in column_2:
+            raise ValueError (
+                Fore.RED + f'{name} is not in the Employee Database'
+            )
+    except ValueError as e:
+        (Fore.RED + f'Invalid Data: {e}, please try again.')
 
 def get_wage(lname):
     """
@@ -495,10 +511,10 @@ def calculate_taxes(pay, name):
     tax = 0.2
     national_insurance = 0.1
     national_insurance_tax = pay * national_insurance
-    print(Fore.WHITE + national_insurance_tax)
+    print(Fore.WHITE + f'{national_insurance_tax}')
 
     income_tax = tax * pay
-    print(Fore.WHITE + income_tax)
+    print(Fore.WHITE + f'{income_tax}')
 
     print(Fore.WHITE + f'{name} paid £{income_tax:.2f} in income tax, and £{national_insurance_tax:.2f} in national insurance')
 
