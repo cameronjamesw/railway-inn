@@ -54,7 +54,7 @@ def get_user_option():
         print(Fore.WHITE + 'B - Display existing employee')
         print(Fore.WHITE + 'C - Calculate wages of an exisitng employee\n')
 
-        user_input = input("Enter an option: ")
+        user_input = input("Enter an option: \n")
         user_input = user_input.upper()
 
         if validate_user_option_input(user_input):
@@ -98,7 +98,7 @@ def display_create_employee():
 
     print('Create Employee Selected\n')
     while True:
-        first_name = input(Fore.WHITE + "Please enter the first name of your new employee: ")
+        first_name = input(Fore.WHITE + "Please enter the first name of your new employee: \n")
         new_employee.append(first_name)
         class_employee.append(first_name)
 
@@ -106,7 +106,7 @@ def display_create_employee():
             break
 
     while True:
-        last_name = input(Fore.WHITE + "Please enter the last name of your new employee: ")
+        last_name = input(Fore.WHITE + "Please enter the last name of your new employee: \n")
         new_employee.append(last_name)
         class_employee.append(last_name)
 
@@ -114,7 +114,7 @@ def display_create_employee():
             break
 
     while True:
-        employee_no = input(Fore.WHITE + "Please enter the employee number: ")
+        employee_no = input(Fore.WHITE + "Please enter the employee number: \n")
 
         if numeric_validation(employee_no):
             class_employee.append(employee_no)
@@ -123,7 +123,7 @@ def display_create_employee():
             break
 
     while True:
-        contract_hours = input(Fore.WHITE + "Please enter the contracted hours of your new employee: ")
+        contract_hours = input(Fore.WHITE + "Please enter the contracted hours of your new employee: \n")
         new_employee.append(contract_hours)
         class_employee.append(contract_hours)
 
@@ -131,7 +131,7 @@ def display_create_employee():
             break
 
     while True:
-        wage = input(Fore.WHITE + "Please enter the wage of your new employee: ")
+        wage = input(Fore.WHITE + "Please enter the wage of your new employee: \n")
         
         if numeric_validation(wage):
             class_employee.append(wage)
@@ -211,7 +211,7 @@ def user_check(data):
     This function allows the user to check if
     the inputs they have entered are correct
     """
-    user_check = input("\nIs the data you entered correct? (Y/N): ")
+    user_check = input("\nIs the data you entered correct? (Y/N): \n")
     user_check = user_check.upper()
     letter_validation(user_check)
 
@@ -243,7 +243,7 @@ def push_new_employee(employee_data):
 
 def main_menu_input():
     while True:
-        user_input = input(Fore.YELLOW + '\nReturn to the main menu? (Y/N): ')
+        user_input = input(Fore.YELLOW + '\nReturn to the main menu? (Y/N): \n')
 
         if return_to_main_menu(user_input):
             break
@@ -262,7 +262,7 @@ def return_to_main_menu(inp):
             get_user_option()
             return True
         elif inp == 'N':
-            confirm = input(Fore.YELLOW + 'Are you sure you want to exit the application? (Y/N): ')
+            confirm = input(Fore.YELLOW + 'Are you sure you want to exit the application? (Y/N): \n')
             confirm = confirm.upper()
             try:
                 if confirm == 'Y':
@@ -292,14 +292,14 @@ def display_employee():
     """
     while True:
         print(Fore.WHITE + '\nPlease enter the first name of the employee you wish to display..')
-        f_name = input('Employee First Name: ')
+        f_name = input('Employee First Name: \n')
         f_name = f_name.capitalize()
         if letter_validation(f_name):
             break
 
     while True:
         print(Fore.WHITE + '\nPlease enter the last name of the employee you wish to display..')
-        l_name = input('Employee Last Name: ')
+        l_name = input('Employee Last Name: \n')
         l_name = l_name.capitalize()
         if letter_validation(l_name):
             break
@@ -355,7 +355,7 @@ def try_again(variable):
     the terminal. Anything other than "Y" or "N" raises
     an error to the terminal. 
     """
-    user_input = input(Fore.YELLOW + f"\nDo you want to try again? (Y/N): ")
+    user_input = input(Fore.YELLOW + f"\nDo you want to try again? (Y/N): \n")
     user_input = user_input.upper()
 
     try:    
@@ -410,14 +410,14 @@ def get_employee_name():
     """
     while True:
         print(Fore.WHITE + '\nPlease enter the first name of the employee..')
-        f_name = input('Employee First Name: ')
+        f_name = input('Employee First Name: \n')
         f_name = f_name.capitalize()
         if letter_validation(f_name):
             break
 
     while True:
         print(Fore.WHITE + '\nPlease enter the last name of the employee..')
-        l_name = input('Employee Last Name: ')
+        l_name = input('Employee Last Name: \n')
         l_name = l_name.capitalize()
         if letter_validation(l_name):
             break
@@ -473,7 +473,7 @@ def get_employee_hours(name, lname, fname):
 
     while True:
         print(Fore.WHITE + f'\n{name} is contracted to work {hours} hours per week ({hours * 4} hours per month).')
-        user_input = input(f'Did {name} work their contracted hours? (Y/N): ')
+        user_input = input(f'Did {name} work their contracted hours? (Y/N): \n')
         user_input = user_input.upper()
         if letter_validation(user_input):
             break
@@ -482,7 +482,8 @@ def get_employee_hours(name, lname, fname):
             print(Fore.WHITE + f'\n{name} worked {hours} hours this pay period.')
             calculate_pay_before_tax(name, hours, wage, fname, lname)
         elif user_input == 'N':
-            new_hours = input(f'How many total hours did {name} work: ')
+            new_hours = input(f'How many total hours did {name} work: \n')
+            new_hours = int(new_hours)
             print(Fore.WHITE + f'\n{name} worked {new_hours} hours this pay period.')
             calculate_pay_before_tax(name, new_hours, wage, fname, lname)
         else:
@@ -528,7 +529,7 @@ def calculate_taxes(pay, name, fname, lname):
 
     taxes = add_tax_list(fname, lname, pay, net_pay, income_tax, national_insurance_tax, total_tax)
 
-    user_input = input('\nDo you want to add this data to the Employee Database? (Y/N): ')
+    user_input = input('\nDo you want to add this data to the Employee Database? (Y/N): \n')
     user_input = user_input.upper()
 
     while True:
@@ -581,7 +582,5 @@ def append_employee_tax(taxes):
     print(Fore.GREEN + '\nEmployee Database Updated!')
 
     main_menu_input()
-
-
 
 get_user_option()
