@@ -295,12 +295,11 @@ def display_employee():
         l_name = input('Employee Last Name: ')
         if letter_validation(l_name):
             break
-
     display_employee_details(l_name)
-
     concat_input = concatonate_inputs(f_name, l_name)
     check_name(concat_input)
     
+
 def concatonate_inputs(input1, input2):
     """
     This function takes the two inputs from update_employees
@@ -322,14 +321,16 @@ def check_name(name):
 
     try:
         if name in database_names:
-            print(f'You have entered {name}')
+            return True
     
         else:
             raise ValueError (
                 f'{name} does not exist in the Employee Database'
             )
+            return False
     except ValueError as e:
         print(f'\nInvalid data {e}. Please try another name.')
+        
     
    
     if name not in database_names:
@@ -368,14 +369,24 @@ def display_employee_details(lname):
     to locate the employee in the database and then display the
     relevent employee details to the console.
     """
-    index = column_2.index(lname)
-    user_data = data[index]
     
-    print(f'\nFirst Name = {user_data[0]}')
-    print(f'Last Name = {user_data[1]}')
-    print(f'Employee Number = {user_data[2]}')
-    print(f'Contracted Hours = {user_data[3]} hours p/wk')
-    print(f'Wage = {user_data[4]} p/hr')
+    try:
+        if check_name:
+
+            index = column_2.index(lname)
+            user_data = data[index]
+
+            print(f'\nFirst Name = {user_data[0]}')
+            print(f'Last Name = {user_data[1]}')
+            print(f'Employee Number = {user_data[2]}')
+            print(f'Contracted Hours = {user_data[3]} hours p/wk')
+            print(f'Wage = {user_data[4]} p/hr')
+        else:
+            raise ValueError (
+                f'{lname} is not in the employee database'
+            )
+    except ValueError as e:
+        print(f'Invalid name: {e}. Please enter another name')
 
 def get_employee_name():
     """
