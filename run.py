@@ -292,21 +292,21 @@ def display_employee():
     while True:
         print('\nPlease enter the first name of the employee you wish to display..')
         f_name = input('Employee First Name: ')
+        f_name = f_name.capitalize()
         if letter_validation(f_name):
             break
 
     while True:
         print('\nPlease enter the last name of the employee you wish to display..')
         l_name = input('Employee Last Name: ')
+        l_name = l_name.capitalize()
         if letter_validation(l_name):
             break
     
     concat_input = concatonate_inputs(f_name, l_name)
     check_name(concat_input, l_name)
 
-    main_menu_input()
-    
-    
+    main_menu_input()   
 
 def concatonate_inputs(input1, input2):
     """
@@ -407,12 +407,14 @@ def get_employee_name():
     while True:
         print('\nPlease enter the first name of the employee..')
         f_name = input('Employee First Name: ')
+        f_name = f_name.capitalize()
         if letter_validation(f_name):
             break
 
     while True:
         print('\nPlease enter the last name of the employee..')
         l_name = input('Employee Last Name: ')
+        l_name = l_name.capitalize()
         if letter_validation(l_name):
             break
 
