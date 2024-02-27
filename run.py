@@ -405,23 +405,34 @@ def get_employee_hours(name, lname):
     
     if user_input == 'Y':
         print(f'\n{name} worked {hours} hours this pay period.')
-        calculate_wage(name, hours, wage)
+        calculate_pay_before_tax(name, hours, wage)
     elif user_input == 'N':
         new_hours = input(f'How many total hours did {name} work: ')
         print(f'\n{name} worked {new_hours} hours this pay period.')
-        calculate_wage(name, new_hours, wage)
+        calculate_pay_before_tax(name, new_hours, wage)
 
 
-def calculate_wage(name, hours, wage):
+def calculate_pay_before_tax(name, hours, wage):
     print(f"This is the name, {name}.")
     print(f"These are the hours worked, {hours}")
     print(f"This is the wage, {wage} per hour")
     wage = float(wage)
     hours = int(hours)
 
-    total_earnings = wage * (hours * 4)
-    print(total_earnings)
+    gross_income = wage * hours
+    print(gross_income)
+    calculate_taxes(gross_income, name)
     print(wage)
 
+def calculate_taxes(pay, name):
+    tax = 0.2
+    national_insurance = 0.1
+    national_insurance_tax = pay * national_insurance
+    print(national_insurance_tax)
+
+    income_tax = tax * pay
+    print(income_tax)
+
+    print(f'{name} paid £{income_tax:.2f} in income tax, and £{national_insurance_tax:.2f} in national insurance')
 
 get_user_option()
