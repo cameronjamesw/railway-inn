@@ -295,9 +295,9 @@ def display_employee():
         l_name = input('Employee Last Name: ')
         if letter_validation(l_name):
             break
-    display_employee_details(l_name)
+    
     concat_input = concatonate_inputs(f_name, l_name)
-    check_name(concat_input)
+    check_name(concat_input, l_name)
     
 
 def concatonate_inputs(input1, input2):
@@ -309,7 +309,7 @@ def concatonate_inputs(input1, input2):
     full_name = f"{input1} {input2}"
     return full_name
 
-def check_name(name):
+def check_name(name, l_name):
     """
     This function takes the full name from concatenate_inputs function,
     and checks to see if the name exists in the database.
@@ -321,6 +321,7 @@ def check_name(name):
 
     try:
         if name in database_names:
+            display_employee_details(l_name)
             return True
     
         else:
