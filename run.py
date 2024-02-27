@@ -409,7 +409,7 @@ def get_employee_name():
             break
 
     concat_input = concatonate_inputs(f_name, l_name)
-    check_name(concat_input)
+    check_name(concat_input, l_name)
     get_employee_hours(concat_input, l_name)
 
 def get_wage(lname):
