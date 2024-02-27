@@ -6,6 +6,34 @@ The Railway Inn are an independent pub company based in the West-Midlands, Unite
 
 # Contents
 
+- [Introduction](#introduction)
+- [Project](#project)
+  - [User goals:](#user-goals)
+  - [Site owner goals](#site-owner-goals)
+- [Pre development](#pre-development)
+- [Development](#development)
+- [Features](#features)
+  - [Welcome Page & Main Menu](#welcome-page--main-menu)
+  - [Create New Employee](#create-new-employee)
+  - [Review Create Employee](#review-create-employee)
+  - [Push New Employee](#push-new-employee)
+  - [Display Existing Employee](#display-employee)
+  - [Calculate Employee Wage](#calculate-employee-wage)
+  - [Return to Main Menu](#return-to-main-menu)
+  - [Error Validation](#error-validation)
+  - [Exit Application](#exit-application)
+- [Google Sheets](#google-sheets)
+- [Technologies Used](#technologies-used)
+- [Resources](#resources)
+  - [Libraries](#libraries)
+- [Testing](#testing)
+- [Future Updates](#future-updates)  
+- [Validation](#validation)
+- [Deployment](#deployment)
+- [Bugs](#bugs)
+- [Credits](#credits)
+- [Acknowledgements](#acknowledgements)
+
 # Introduction
 
 The Railway Inn Employee Portal allows employees of the Railway Inn to view their expected pay based off of the hours that thwy have worked within a given pay period. Similtaneously, both the gross-pay and net-pay will be pushed to a Google Sheets document for the benefit of HR.  The portal allows HR to create employee profiles within the portal which will allow easy access to key information of any given employee with no hassle.
@@ -40,6 +68,24 @@ I have designed the project following the flowchart that I drafted. I coded the 
 Granted, while testing, it did become apparent that there were underlying errors and bugs within all branches of the application. However; I figured that it was best to get the skeleton of my portal coded first, and then after making a note of the bugs I could then go ahead and fix them at a later date.
 
 # Features
+
+## Welcome Page & Main Menu
+
+## Create New Employee
+
+## Review Create Employee
+
+## Push New Employee
+
+## Display Employee
+
+## Calculate Employee Wage
+
+## Return to Main Menu
+
+## Error Validation
+
+## Exit Application
 
 # Google Sheets
 
