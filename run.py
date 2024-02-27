@@ -15,6 +15,7 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('railway_inn_employees')
 
 employee_page = SHEET.worksheet('Employees')
+tax_page = SHEET.worksheet('Taxes')
 
 data = employee_page.get_all_values()
 row = data[-1]
@@ -426,7 +427,7 @@ def get_employee_name():
     concat_input = concatonate_inputs(f_name, l_name)
     check_last_name(l_name, concat_input)
     check_name(concat_input, l_name, calculate_variable)
-    get_employee_hours(concat_input, l_name)
+    get_employee_hours(concat_input, l_name, f_name)
 
 def check_last_name(l_name, name):
 
@@ -460,7 +461,7 @@ def get_hours(lname):
     hours = user_data[3]
     return hours
 
-def get_employee_hours(name, lname):
+def get_employee_hours(name, lname, fname):
     """
     This function will ask the user if the employee worked their
     contracted hours, and if not will display the user an input
@@ -479,11 +480,11 @@ def get_employee_hours(name, lname):
     try:
         if user_input == 'Y':
             print(Fore.WHITE + f'\n{name} worked {hours} hours this pay period.')
-            calculate_pay_before_tax(name, hours, wage)
+            calculate_pay_before_tax(name, hours, wage, fname, lname)
         elif user_input == 'N':
             new_hours = input(f'How many total hours did {name} work: ')
             print(Fore.WHITE + f'\n{name} worked {new_hours} hours this pay period.')
-            calculate_pay_before_tax(name, new_hours, wage)
+            calculate_pay_before_tax(name, new_hours, wage, fname, lname)
         else:
             raise ValueError (
                 print(Fore.RED + f'Please enter a value of "Y" or "N", you entered {user_input}')
@@ -491,7 +492,7 @@ def get_employee_hours(name, lname):
     except ValueError as e:
         print(Fore.RED + f'Invalid input {e}. Please try again.')
 
-def calculate_pay_before_tax(name, hours, wage):
+def calculate_pay_before_tax(name, hours, wage, fname, lname):
     """
     This function takes 3 parameters of name, hours and wage. It will
     calculate the gross income of the employee without deducting
@@ -500,9 +501,9 @@ def calculate_pay_before_tax(name, hours, wage):
     wage = int(wage)
 
     gross_income = wage * hours
-    calculate_taxes(gross_income, name)
+    calculate_taxes(gross_income, name, fname, lname)
 
-def calculate_taxes(pay, name):
+def calculate_taxes(pay, name, fname, lname):
     """
     This function takes two parameters of gross pay and name.
     This function will calculate the income tax and national insurance of
@@ -510,23 +511,40 @@ def calculate_taxes(pay, name):
     """
     tax = 0.2
     national_insurance = 0.1
+
     national_insurance_tax = pay * national_insurance
     income_tax = tax * pay
     total_tax = national_insurance_tax + income_tax
+    net_pay = pay - total_tax
 
     print(Fore.WHITE + f'{name} paid £{income_tax:.2f} in income tax, and £{national_insurance_tax:.2f} in national insurance')
-    add_tax_list(name, pay, income_tax, national_insurance_tax, total_tax)
+    taxes = add_tax_list(fname, lname, pay, net_pay, income_tax, national_insurance_tax, total_tax)
 
-def add_tax_list(name, pay, income_tax, national_insurance_tax, total_tax):
+    append_employee_tax(taxes)
+
+def add_tax_list(fname, lname, pay, net_pay, income_tax, national_insurance_tax, total_tax):
     employee_tax_info = []
 
-    employee_tax_info.append(name)
+    pay = f"£{pay:.2f}"
+    net_pay = f"£{net_pay:.2f}"
+    income_tax = f"£{income_tax:.2f}"
+    national_insurance_tax = f"£{national_insurance_tax:.2f}"
+    total_tax = f"£{total_tax:.2f}"
+
+    employee_tax_info.append(fname)
+    employee_tax_info.append(lname)
     employee_tax_info.append(pay)
+    employee_tax_info.append(net_pay)
     employee_tax_info.append(income_tax)
     employee_tax_info.append(national_insurance_tax)
     employee_tax_info.append(total_tax)
 
-    print(employee_tax_info)
+    return employee_tax_info
+
+def append_employee_tax(taxes):
+    print(taxes)
+    tax_page.append_row(taxes)
+
 
 
 get_user_option()
