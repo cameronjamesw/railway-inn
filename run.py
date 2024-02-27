@@ -242,7 +242,7 @@ def push_new_employee(employee_data):
 
 def main_menu_input():
     while True:
-        user_input = input('Return to the main menu? (Y/N): \n')
+        user_input = input('\nReturn to the main menu? (Y/N): ')
 
         if return_to_main_menu(user_input):
             break
@@ -266,16 +266,21 @@ def return_to_main_menu(inp):
             try:
                 if confirm == 'Y':
                     os.system('cls||clear')
+                    return True
                 elif confirm == 'N':
                     confirm = 'Y'
-                    return_to_main_menu(confirm)
+                    return False
+                    main_menu_input()
             except ValueError as e:
                 print(f"Invalid Data {e}, you entered {inp}")
                 return False
-
+        else:
+            raise ValueError (
+                f'Please enter a value of "Y" or "N", you entered {inp}'
+            )
             return True
     except ValueError as e:
-        print(f"Invalid Data {e}, you entered {inp}")
+        print(f"Invalid Data: {e}, please try again.")
         return False
 
 def display_employee():
@@ -298,6 +303,9 @@ def display_employee():
     
     concat_input = concatonate_inputs(f_name, l_name)
     check_name(concat_input, l_name)
+
+    main_menu_input()
+    
     
 
 def concatonate_inputs(input1, input2):
