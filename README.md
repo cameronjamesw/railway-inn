@@ -70,22 +70,63 @@ Granted, while testing, it did become apparent that there were underlying errors
 # Features
 
 ## Welcome Page & Main Menu
+- Image
+
+- Here the user is greeted with a welcome message. The user is able to enter 1 of 3 options, as seen above.
 
 ## Create New Employee
 
+- Image
+
+- Upon selecting Option A, the user will be able to create an employee within the Employee Database. The terminal takes multiple fields, all requesting key information regarding the individual.
+
 ## Review Create Employee
+
+- Image
+
+- The information inputed into the terminal will be read back to the user, and if the user is unhappy with the information provided, in the event of a typo, they will be able to reset the terminal and re-enter the information.
 
 ## Push New Employee
 
+- Image
+
+- However, if the user is happy that all the information is correct, they will then be able to push the data provided to a Google Sheet housing the Employee Database.
+
 ## Display Employee
 
-## Calculate Employee Wage
+- Image
+
+- The second option that the user can select is display employee. This option will fetch exisitng data from the aforementioned Employee Database and display it to the user in the terminal.
+
+## Calculate Employee Pay
+
+- Image
+
+- The third option that the user can select is calculate employee pay. This option will ask the user for an existing employee who's pay they want to calculate, it is will print the gross pay, net pay amd taxes to the console.
+
+## Push Employee Pay
+
+- Image
+
+- Upon calculating the employee's pay, the user is given the option to push this data to the Employee Database. This will update the Google Sheets Employee Database with the pay and taxes the user has just calculated in the terminal.
 
 ## Return to Main Menu
 
+- Image
+
+- At the end of each branch, the user will be given the option to return to the main menu. This providing conveniance for the user as they do not have to refresh the application. It also allows the user to transverse from branch to branch without resetting the application.
+
 ## Error Validation
 
+- Image
+
+- Multiple instances of validation have been added into the Employee Database to make life as simple and stress-free as possible for the user. The terminal will raise an error if the specific input is not implemented, or the user attempts to search for an employee that is not in the database.
+- On top of this, the programme will continue to run in the event of an error without the user having to reset the application.
+
 ## Exit Application
+- Image
+
+- Throughout the application, the user is given the choice to exit out of the application if they choose to. This simple feature ties the application together and makes it feel complete, as oppose to abruptly closing.
 
 # Google Sheets
 
