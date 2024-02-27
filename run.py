@@ -517,10 +517,41 @@ def calculate_taxes(pay, name, fname, lname):
     total_tax = national_insurance_tax + income_tax
     net_pay = pay - total_tax
 
-    print(Fore.WHITE + f'{name} paid £{income_tax:.2f} in income tax, and £{national_insurance_tax:.2f} in national insurance')
+    print(Fore.GREEN + f"{name}'s income details are as follows:")
+    print(Fore.WHITE + f'First Name = {fname}')
+    print(Fore.WHITE + f'Last Name = {lname}')
+    print(Fore.WHITE + f'Gross Income = {pay}')
+    print(Fore.WHITE + f'Net Income = {net_pay}')
+    print(Fore.YELLOW + f'Income Tax = {income_tax}')
+    print(Fore.YELLOW + f'NI Tax = {national_insurance_tax}')
+    print(Fore.YELLOW + f'Total Tax = {total_tax}')
+
     taxes = add_tax_list(fname, lname, pay, net_pay, income_tax, national_insurance_tax, total_tax)
 
-    append_employee_tax(taxes)
+    user_input = input('\nDo you want to add this data to the Employee Database? (Y/N): ')
+    user_input = user_input.upper()
+
+    while True:
+        if append_validation(user_input, taxes):
+            break
+
+def append_validation(inp, taxes):
+
+    try:
+        if inp == 'Y':
+            append_employee_tax(taxes)
+            return True
+        elif inp == 'N':
+            main_menu_input()
+            return True
+        else:
+            raise ValueError (
+                Fore.RED + f'please enter a value of "Y" or "N", you have entered {inp}'
+            )
+            return False
+    except ValueError as e:
+            print(Fore.RED + f'Invalid Data: {e}. Please try again')
+            return False
 
 def add_tax_list(fname, lname, pay, net_pay, income_tax, national_insurance_tax, total_tax):
     employee_tax_info = []
@@ -542,8 +573,14 @@ def add_tax_list(fname, lname, pay, net_pay, income_tax, national_insurance_tax,
     return employee_tax_info
 
 def append_employee_tax(taxes):
-    print(taxes)
+
+    print(Fore.GREEN + 'Updating Employee Database..')
+
     tax_page.append_row(taxes)
+
+    print(Fore.GREEN + '\nEmployee Database Updated!')
+
+    main_menu_input()
 
 
 
