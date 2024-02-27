@@ -511,11 +511,22 @@ def calculate_taxes(pay, name):
     tax = 0.2
     national_insurance = 0.1
     national_insurance_tax = pay * national_insurance
-    print(Fore.WHITE + f'{national_insurance_tax}')
-
     income_tax = tax * pay
-    print(Fore.WHITE + f'{income_tax}')
+    total_tax = national_insurance_tax + income_tax
 
     print(Fore.WHITE + f'{name} paid £{income_tax:.2f} in income tax, and £{national_insurance_tax:.2f} in national insurance')
+    add_tax_list(name, pay, income_tax, national_insurance_tax, total_tax)
+
+def add_tax_list(name, pay, income_tax, national_insurance_tax, total_tax):
+    employee_tax_info = []
+
+    employee_tax_info.append(name)
+    employee_tax_info.append(pay)
+    employee_tax_info.append(income_tax)
+    employee_tax_info.append(national_insurance_tax)
+    employee_tax_info.append(total_tax)
+
+    print(employee_tax_info)
+
 
 get_user_option()
