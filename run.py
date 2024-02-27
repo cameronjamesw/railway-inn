@@ -404,13 +404,12 @@ def get_employee_hours(name, lname):
             break
     
     if user_input == 'Y':
+        print(f'\n{name} worked {hours} hours this pay period.')
         calculate_wage(name, hours, wage)
     elif user_input == 'N':
         new_hours = input(f'How many total hours did {name} work: ')
-        print(new_hours)
-
-
-    print(f'\n{name} worked {hours} hours this pay period.')
+        print(f'\n{name} worked {new_hours} hours this pay period.')
+        calculate_wage(name, new_hours, wage)
 
 
 def calculate_wage(name, hours, wage):
