@@ -134,7 +134,7 @@ def display_create_employee():
         
         if numeric_validation(wage):
             class_employee.append(wage)
-            wage = f"£{wage}"
+            wage = f"{wage}"
             new_employee.append(wage)
             break
 
@@ -378,19 +378,51 @@ def get_employee_name():
 
     concat_input = concatonate_inputs(f_name, l_name)
     check_name(concat_input)
-    get_employee_hours(concat_input)
+    get_employee_hours(concat_input, l_name)
 
-def get_employee_hours(name):
+def get_wage(lname):
+    index = column_2.index(lname)
+    user_data = data[index]
+    wage = user_data[4]
+    return wage
+
+def get_hours(lname):
+    index = column_2.index(lname)
+    user_data = data[index]
+    hours = user_data[3]
+    return hours
+
+def get_employee_hours(name, lname):
+    hours = get_hours(lname)
+    wage = get_wage(lname)
+
     while True:
-        print('\nPlease enter the total amount of hours the employee worked this pay period..')
-        hours = input('Amount of hours worked: ')
-        if numeric_validation(hours):
+        print(f'\n{name} is contracted to work {hours} hours per week.')
+        user_input = input(f'Did {name} work their exact hours? (Y/N): ')
+        user_input = user_input.upper()
+        if letter_validation(user_input):
             break
+    
+    if user_input == 'Y':
+        calculate_wage(name, hours, wage)
+    elif user_input == 'N':
+        new_hours = input(f'How many total hours did {name} work: ')
+        print(new_hours)
+
 
     print(f'\n{name} worked {hours} hours this pay period.')
-    calculate_wage(name, hours)
 
-def calculate_wage(name, hours):
-    print(f"This is the name, {name}. This is the hours worked {hours}")
-    print('Calculate Wage Function')
+
+def calculate_wage(name, hours, wage):
+    print(f"This is the name, {name}.")
+    print(f"These are the hours worked, {hours}")
+    print(f"This is the wage, {wage} per hour")
+    wage = float(wage)
+    hours = int(hours)
+
+    total_earnings = wage * (hours * 4)
+    print(total_earnings)
+    print(wage)
+
+
 get_user_option()
