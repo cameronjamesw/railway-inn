@@ -204,10 +204,12 @@ The Application has been deployed from GitHub to Heroku by following the steps:
 10. If preferred, click on "Enable Automatic Deploys", which keeps the app up to date with your GitHub repository
 11. Wait for the app to build. Once ready you will see the “App was successfully deployed” message and a 'View' button to take you to your deployed link.
 
-
 # Validation
 
 # Bugs
+
+- A current bug that I am unsure how to fix right now is the issue of the Employee Database not updating. If the user creates an employee account and then tries to display said employee, the terminal will throw an error as it is trying to read the data from a not-updated spreadsheet.
+  - A way around this is by refreshing the terminal after pushing an employee; however this takes away from user experience.
 
 # Credits
 
