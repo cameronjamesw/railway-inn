@@ -186,6 +186,8 @@ The Employee Database is stored on an on-site computer within the Railway Inn wh
 
 # Testing
 
+Testing for the employee portal can be found [here](/TESTING.md)
+
 # Future Updates
 
 # Deployment
