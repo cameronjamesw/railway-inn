@@ -15,3 +15,23 @@ The following tests were carried out to ensure that the Employee Portal was work
 | Select Option A | Entered 'A' | Displayed Create New Employee | Worked as expected | 
 | Select Option B | Entered 'B' | Displayed Display Employee | Worked as expected |
 | Select Option C | Entered 'C' | Displayed Calculate Pay | Worked as expected | 
+| Select Option | Entered 'D' | Raise Value Error | Worked as expected |
+| Select Option | Entered '1' | Raise Value Error | Worked as expected |
+| Name Input | Entered 'Cam' | Accepted Input | Worked as expected |
+| Name Input | Entered number & special character | Raise Value Error | Worked as expected |
+| Hour/Wage Input | Entered number | Accepted Input | Worked as expected |
+| Hour/Wage Input | Entered letter & special character | Raise Value Error | Worked as expected |
+| Review Input | Entered 'Y'/'N' | Displayed relevent outcome | Worked as expected |
+| Review Input | Entered other letter, number, space & special character | Raise Value Error | Worked as Expected |
+| Push to Google Sheets | Submitted Employee Details | Appended row in Google Sheets | Worked as expected |
+| Return to Main Menu | Entered 'Y'/'N' | Displayed Relevent Outcome | Worked as expected |
+| Return to Main Menu | Entered other letter, number, space & special character | Raise Value Error | Worked as Expected |
+| Exit Application | Entered 'Y'/'N' | Displayed Relevent Outcome | Worked as expected |
+| Ext Application | Entered other letter, number, space & special character | Raise Value Error | Worked as Expected |
+| Try Again Input | Entered 'Y'/'N' | Displayed Relevent Outcome | Worked as expected |
+| Try Again Input | Entered other letter, number, space & special character | Raise Value Error | Worked as Expected |
+| Display Employee Pay Details | Enter relevent info | Displayed employee pay details | Worked as expected |
+| Hours Confirmation | Entered 'Y'/'N' | Displayed Relevent Outcome | Worked as expected |
+| Hours Confirmation | Entered other letter, number, space & special character | Raise Value Error | Worked as Expected |
+| Push Pay Data | Submitted Employee Pay Details | Appended row to Google Sheet | Worked as expected |
+
