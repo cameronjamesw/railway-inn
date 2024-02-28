@@ -18,11 +18,14 @@ The Railway Inn are an independent pub company based in the West-Midlands, Unite
   - [Review Create Employee](#review-create-employee)
   - [Push New Employee](#push-new-employee)
   - [Display Existing Employee](#display-employee)
-  - [Calculate Employee Wage](#calculate-employee-wage)
+  - [Calculate Employee Pay](#calculate-employee-pay)
+  - [Push Employee Pay](#push-employee-pay)
   - [Return to Main Menu](#return-to-main-menu)
   - [Error Validation](#error-validation)
   - [Exit Application](#exit-application)
 - [Google Sheets](#google-sheets)
+  - [Employees](#employees)
+  - [Taxes](#taxes)
 - [Technologies Used](#technologies-used)
 - [Resources](#resources)
   - [Libraries](#libraries)
@@ -129,6 +132,25 @@ Granted, while testing, it did become apparent that there were underlying errors
 - Throughout the application, the user is given the choice to exit out of the application if they choose to. This simple feature ties the application together and makes it feel complete, as oppose to abruptly closing.
 
 # Google Sheets
+
+It was always my original intention to use Google Sheets in conjunction with this Python project. Through updating the Google Sheets outlined below, the user will find great convienience in using the Employee Portal.
+
+Initially I wanted to inclue a 'rota' sheet which would outline the rota for the following week/month, and this would be used to calculate the wages of the employees. However this proved to be too complicated when considering overtime that employees worked, or shifts that were missed for various reasons. It therefore made sense for the user to input hours worked manually. 
+
+## Employees
+
+![An image of the employees page within the employee database](assets/images/employees-ss.png)
+
+- The employee page of the Employee Database displays the following parameters
+  - First Name
+  - Last Name
+  - Employee Number
+  - Contracted Hours per Week
+  - Wage per Hour
+
+## Taxes
+
+![An image of the taxes page within the employee database](assets/images/taxes-ss.png)
 
 # Techonlogies Used
 
