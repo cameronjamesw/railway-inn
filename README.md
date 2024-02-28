@@ -33,6 +33,8 @@ The Railway Inn are an independent pub company based in the West-Midlands, Unite
 - [Future Updates](#future-updates)  
 - [Validation](#validation)
 - [Deployment](#deployment)
+  - [Heroku](#heroku)
+  - [Branching the GitHub Repository using GitHub Desktop and Visual Studio Code](#branching-the-github-repository-using-github-desktop-and-visual-studio-code)
 - [Bugs](#bugs)
 - [Credits](#credits)
 - [Acknowledgements](#acknowledgements)
@@ -193,6 +195,8 @@ Testing for the employee portal can be found [here](/TESTING.md)
 
 # Deployment
 
+### Heroku
+
 The Application has been deployed from GitHub to Heroku by following the steps:
 
 1. Create or log in to your account at heroku.com
@@ -206,6 +210,14 @@ The Application has been deployed from GitHub to Heroku by following the steps:
 9.  Choose the branch you want to build your app from
 10. If preferred, click on "Enable Automatic Deploys", which keeps the app up to date with your GitHub repository
 11. Wait for the app to build. Once ready you will see the “App was successfully deployed” message and a 'View' button to take you to your deployed link.
+
+### Branching the GitHub Repository using GitHub Desktop and Visual Studio Code
+1. Go to the GitHub repository.
+2. Click on the branch button in the left hand side under the repository name.
+3. Give your branch a name.
+4. Go to the CODE area on the right and select "Open with GitHub Desktop".
+5. You will be asked if you want to clone the repository - say yes.
+6. GitHub desktop will suggest what to do next - select Open code using Visual Studio Code.
 
 # Validation
 
