@@ -73,7 +73,7 @@ Granted, while testing, it did become apparent that there were underlying errors
 # Features
 
 ## Welcome Page & Main Menu
-- Image
+![An image of the welcome window within the Employee Portal](assets/images/welcome-ss.png)
 
 - Here the user is greeted with a welcome message. The user is able to enter 1 of 3 options, as seen above.
 
