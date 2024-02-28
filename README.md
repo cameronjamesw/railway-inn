@@ -165,6 +165,10 @@ The Employee Database is stored on an on-site computer within the Railway Inn wh
 
 # Techonlogies Used
 
+- Python is the main technology that has been used to create the terminal window.
+- Google Sheets has been used to create and house the Employee Database.
+- Google Sheets API has been used to in order to push and fetch data to and from the Employee Database.
+
 # Resources
 
 - Visual Studio Code (VSCode)
