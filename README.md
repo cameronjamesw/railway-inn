@@ -141,7 +141,7 @@ Initially I wanted to inclue a 'rota' sheet which would outline the rota for the
 
 ![An image of the employees page within the employee database](assets/images/employees-ss.png)
 
-- The employee page of the Employee Database displays the following parameters
+- The employee page of the Employee Database displays the following parameters:
   - First Name
   - Last Name
   - Employee Number
@@ -151,6 +151,17 @@ Initially I wanted to inclue a 'rota' sheet which would outline the rota for the
 ## Taxes
 
 ![An image of the taxes page within the employee database](assets/images/taxes-ss.png)
+
+- The taxes page of the Employee Database displays the following parameters:
+  - First Name
+  - Last Name
+  - Gross Income
+  - Net Income
+  - Income Tax
+  - National Insurance Tax
+  - Total Tax
+
+The Employee Database is stored on an on-site computer within the Railway Inn where they can access the information uploaded to it.
 
 # Techonlogies Used
 
