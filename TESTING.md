@@ -2,7 +2,7 @@
 
 Image
 
-View the live site here - link
+View the live site [here](https://railway-nn-employee-portal-da8a700a2d95.herokuapp.com/)
 
 Once the portal was up and running with functionality, I began testing it for any potential and obscure errors so that in the event of catching any I was able to fix them.
 
