@@ -87,6 +87,7 @@ def display_create_employee():
     print('Create Employee Selected\n')
     while True:
         first_name = input(Fore.WHITE + "\nPlease enter the first name of your new employee: \n")
+        first_name = first_name.capitalize()
         new_employee.append(first_name)
 
         if letter_validation(first_name):
@@ -94,6 +95,7 @@ def display_create_employee():
 
     while True:
         last_name = input(Fore.WHITE + "\nPlease enter the last name of your new employee: \n")
+        last_name = last_name.capitalize()
         new_employee.append(last_name)
 
         if letter_validation(last_name):
