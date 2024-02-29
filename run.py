@@ -272,8 +272,12 @@ def return_to_main_menu(inp):
                 elif confirm == 'N':
                     main_menu_input()
                     return False
+                else:
+                    raise ValueError (
+                    Fore.RED + f'Please enter a value of "Y" or "N", you entered {confirm}'
+                )
             except ValueError as e:
-                print(Fore.RED + f"Invalid Data {e}, you entered {inp}")
+                print(Fore.RED + f"Invalid Data {e}, please try again")
                 return False
         else:
             raise ValueError (
@@ -307,7 +311,8 @@ def display_employee():
     display_variable = 'display'
 
     concat_input = concatonate_inputs(f_name, l_name)
-    check_name(concat_input, l_name, display_variable)
+    if check_name(concat_input, l_name, display_variable):
+        main_menu_input()
 
 def concatonate_inputs(input1, input2):
     """
@@ -341,13 +346,14 @@ def check_name(name, l_name, variable):
     except ValueError as e:
         print(Fore.RED + f'\nInvalid data {e}. Please try another name.')
         
+        
     
    
     if name not in database_names:
         
         while True:
             if try_again(variable):
-                break     
+                break    
 
 def try_again(variable):
     """
