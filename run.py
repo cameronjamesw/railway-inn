@@ -287,8 +287,7 @@ def check_name(name, l_name, variable):
     and checks to see if the name exists in the database.
     """
     database_names = []
-    print(first_name_column)
-    print(second_name_column)
+    
     for fname, lname in zip(first_name_column, second_name_column):
         full_name = f"{fname} {lname}"
         database_names.append(full_name)
@@ -505,9 +504,11 @@ def calculate_taxes(pay, name, fname, lname):
     print(Fore.YELLOW + f'Total Tax = {total_tax}')
 
     taxes = add_tax_list(fname, lname, pay, net_pay, income_tax, national_insurance_tax, total_tax)
-
-    user_input = input('\nDo you want to add this data to the Employee Database? (Y/N): \n')
-    user_input = user_input.upper()
+    while True:
+        user_input = input('\nDo you want to add this data to the Employee Database? (Y/N): \n')
+        user_input = user_input.upper()
+        if letter_validation(user_input):
+            break
 
     while True:
         if append_validation(user_input, taxes):
