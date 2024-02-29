@@ -431,17 +431,24 @@ def get_employee_name():
     calculate_variable = 'calculate'
 
     concat_input = concatonate_inputs(f_name, l_name)
-    check_last_name(l_name, concat_input)
-    check_name(concat_input, l_name, calculate_variable)
-    get_employee_hours(concat_input, l_name, f_name)
+    
+    if check_last_name(l_name, concat_input):
+        check_name(concat_input, l_name, calculate_variable)
+        while True:
+             if get_employee_hours(concat_input, l_name, f_name):
+                break
+    else:
+        try_again(calculate_variable)
 
 def check_last_name(l_name, name):
-
     try:
-        if l_name not in column_2:
+        if l_name in column_2:
+            return True
+        else:
             raise ValueError (
-                Fore.RED + f'{name} is not in the Employee Database'
+                print(Fore.RED + f'{name} is not in the Employee Database')
             )
+            return False 
     except ValueError as e:
         (Fore.RED + f'Invalid Data: {e}, please try again.')
 
@@ -487,17 +494,21 @@ def get_employee_hours(name, lname, fname):
         if user_input == 'Y':
             print(Fore.WHITE + f'\n{name} worked {hours} hours this pay period.')
             calculate_pay_before_tax(name, hours, wage, fname, lname)
+            return True
         elif user_input == 'N':
             new_hours = input(f'How many total hours did {name} work: \n')
             new_hours = int(new_hours)
             print(Fore.WHITE + f'\n{name} worked {new_hours} hours this pay period.')
             calculate_pay_before_tax(name, new_hours, wage, fname, lname)
+            return True
         else:
             raise ValueError (
                 print(Fore.RED + f'Please enter a value of "Y" or "N", you entered {user_input}')
             )
+            return False
     except ValueError as e:
         print(Fore.RED + f'Invalid input {e}. Please try again.')
+        return False
 
 def calculate_pay_before_tax(name, hours, wage, fname, lname):
     """
