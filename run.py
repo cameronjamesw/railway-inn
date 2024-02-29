@@ -21,10 +21,14 @@ data = employee_page.get_all_values()
 row = data[-1]
 
 column_1 = employee_page.col_values(1)
-column_slice = slice(1, -1)
-first_name_column = column_1[column_slice]
 column_2 = employee_page.col_values(2)
-second_name_column = column_2[column_slice]
+first_name_column = []
+second_name_column = []
+for employee in column_1:
+    first_name_column.append(employee)
+for employee in column_2:
+    second_name_column.append(employee)
+
 
 def get_user_option():
     """
@@ -283,6 +287,8 @@ def check_name(name, l_name, variable):
     and checks to see if the name exists in the database.
     """
     database_names = []
+    print(first_name_column)
+    print(second_name_column)
     for fname, lname in zip(first_name_column, second_name_column):
         full_name = f"{fname} {lname}"
         database_names.append(full_name)
