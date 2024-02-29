@@ -306,9 +306,6 @@ def check_name(name, l_name, variable):
             return False
     except ValueError as e:
         print(Fore.RED + f'\nInvalid data {e}. Please try another name.')
-        
-        
-    
    
     if name not in database_names:
         
@@ -496,7 +493,7 @@ def calculate_taxes(pay, name, fname, lname):
     total_tax = national_insurance_tax + income_tax
     net_pay = pay - total_tax
 
-    print(Fore.GREEN + f"{name}'s income details are as follows:")
+    print(Fore.GREEN + f"\n{name}'s income details are as follows:")
     print(Fore.WHITE + f'First Name = {fname}')
     print(Fore.WHITE + f'Last Name = {lname}')
     print(Fore.WHITE + f'Gross Income = {pay}')
@@ -506,15 +503,33 @@ def calculate_taxes(pay, name, fname, lname):
     print(Fore.YELLOW + f'Total Tax = {total_tax}')
 
     taxes = add_tax_list(fname, lname, pay, net_pay, income_tax, national_insurance_tax, total_tax)
+
     while True:
         user_input = input('\nDo you want to add this data to the Employee Database? (Y/N): \n')
         user_input = user_input.upper()
-        if letter_validation(user_input):
-            break
-
-    while True:
-        if append_validation(user_input, taxes):
-            break
+        
+        try:
+            if user_input == 'Y':
+                while True:
+                    if append_validation(user_input, taxes):
+                        break
+                    break
+                return True
+            elif user_input == 'N':
+                while True:
+                    if append_validation(user_input, taxes):
+                        break
+                    break
+                return True
+            else:
+                raise ValueError (
+                    print(Fore.RED + f'Please enter a value of "Y" or "N", you entered {user_input}')
+                    )
+                return False
+        except ValueError as e:
+            print(Fore.RED + f'Invalid input {e}. Please try again.')
+            calculate_taxes(pay, name, fname, lname)
+            return False
 
 def append_validation(inp, taxes):
 
