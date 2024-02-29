@@ -82,21 +82,21 @@ def display_create_employee():
 
     print('Create Employee Selected\n')
     while True:
-        first_name = input(Fore.WHITE + "Please enter the first name of your new employee: \n")
+        first_name = input(Fore.WHITE + "\nPlease enter the first name of your new employee: \n")
         new_employee.append(first_name)
 
         if letter_validation(first_name):
             break
 
     while True:
-        last_name = input(Fore.WHITE + "Please enter the last name of your new employee: \n")
+        last_name = input(Fore.WHITE + "\nPlease enter the last name of your new employee: \n")
         new_employee.append(last_name)
 
         if letter_validation(last_name):
             break
 
     while True:
-        employee_no = input(Fore.WHITE + "Please enter the employee number: \n")
+        employee_no = input(Fore.WHITE + "\nPlease enter the employee number: \n")
 
         if numeric_validation(employee_no):
             employee_no = f"#{employee_no}"
@@ -104,14 +104,14 @@ def display_create_employee():
             break
 
     while True:
-        contract_hours = input(Fore.WHITE + "Please enter the contracted hours of your new employee: \n")
+        contract_hours = input(Fore.WHITE + "\nPlease enter the contracted hours of your new employee: \n")
         new_employee.append(contract_hours)
 
         if numeric_validation(contract_hours):
             break
 
     while True:
-        wage = input(Fore.WHITE + "Please enter the wage of your new employee: \n")
+        wage = input(Fore.WHITE + "\nPlease enter the wage of your new employee: \n")
         
         if numeric_validation(wage):
             wage = f"{wage}"
