@@ -26,21 +26,6 @@ first_name_column = column_1[column_slice]
 column_2 = employee_page.col_values(2)
 second_name_column = column_2[column_slice]
 
-class Employee():
-
-    def __init__(self, first_name, last_name, employee_no, contract_hours, wage):
-       self.first_name = first_name
-       self.last_name = last_name
-       self.employee_no = employee_no
-       self.contract_hours = contract_hours
-       self.wage = wage
-    
-    def printList(self):
-        list = [self.first_name, self.last_name, self.employee_no, self.contract_hours, self.wage]
-        print(list)
-
-Hannah = Employee('Hannah', 'Obrien', 2, 40, '£15')
-
 def get_user_option():
     """
     This function displays the options to the user and then
@@ -94,13 +79,11 @@ def display_user_option(inp):
 
 def display_create_employee():
     new_employee = []
-    class_employee = []
 
     print('Create Employee Selected\n')
     while True:
         first_name = input(Fore.WHITE + "Please enter the first name of your new employee: \n")
         new_employee.append(first_name)
-        class_employee.append(first_name)
 
         if letter_validation(first_name):
             break
@@ -108,7 +91,6 @@ def display_create_employee():
     while True:
         last_name = input(Fore.WHITE + "Please enter the last name of your new employee: \n")
         new_employee.append(last_name)
-        class_employee.append(last_name)
 
         if letter_validation(last_name):
             break
@@ -117,7 +99,6 @@ def display_create_employee():
         employee_no = input(Fore.WHITE + "Please enter the employee number: \n")
 
         if numeric_validation(employee_no):
-            class_employee.append(employee_no)
             employee_no = f"#{employee_no}"
             new_employee.append(employee_no)
             break
@@ -125,7 +106,6 @@ def display_create_employee():
     while True:
         contract_hours = input(Fore.WHITE + "Please enter the contracted hours of your new employee: \n")
         new_employee.append(contract_hours)
-        class_employee.append(contract_hours)
 
         if numeric_validation(contract_hours):
             break
@@ -134,7 +114,6 @@ def display_create_employee():
         wage = input(Fore.WHITE + "Please enter the wage of your new employee: \n")
         
         if numeric_validation(wage):
-            class_employee.append(wage)
             wage = f"{wage}"
             new_employee.append(wage)
             break
@@ -145,10 +124,7 @@ def display_create_employee():
     print(f"Contracted Hours = {contract_hours} hours per week")
     print(f"Wage = {wage}")
 
-    employee_class_list = convert_to_class_list(class_employee)
     full_name = f"{first_name} {last_name}"
-
-    class_push(employee_class_list, full_name)
 
     while True:    
         if user_check(new_employee):
@@ -183,28 +159,6 @@ def numeric_validation(inp):
         print(Fore.RED + f"\nInvalid Data {e}. Please try again\n")
         return False
     return True
-
-def class_push(data, employee_name):
-    """
-    This function takes a parameter and
-    pushes it into the Employee class
-    """
-    employee_name = Employee(data[0], data[1], data[2], data[3], data[4])
-
-def convert_to_class_list(list):
-    """
-    This function takes a list containing strings, and
-    converts the items to the relevent data types.
-    """
-    new_list = []
-    for item in list:
-        if item.isalpha() != True:
-            item = int(item)
-            new_list.append(item)
-        elif item.isnumeric() != True:
-            item = str(item)
-            new_list.append(item)
-    return new_list
 
 def user_check(data):
     """
