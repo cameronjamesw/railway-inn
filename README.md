@@ -181,12 +181,13 @@ The Employee Database is stored on an on-site computer within the Railway Inn wh
 - Heroku
 - Slack
 - LucidChart to create the flow chart
+- W3Schools
 
 ## Libraries
 
 - [colorama Fore & Back](https://pypi.org/project/colorama/)
 
-- [LucidChart](https://www.lucidchart.com/pages/)
+- [OS](https://docs.python.org/3/library/os.html)
 
 # Testing
 
@@ -233,7 +234,9 @@ The Application has been deployed from GitHub to Heroku by following the steps:
 
 - [This video](https://www.youtube.com/watch?v=u51Zjlnui4Y) helped me understand and implement the Colorama Import.
 
-- The [pep8 validation service](https://pypi.org/project/pep8/) which I used and installed in order to validate my code. 
+- The [pep8 validation service](https://pypi.org/project/pep8/) which I used and installed in order to validate my code.
+
+- [This tutorial](https://www.codingninjas.com/studio/library/how-to-clear-a-screen-in-python) helped me utilise the OS Clear function within the os import library.
 
 # Acknowledgements
 
