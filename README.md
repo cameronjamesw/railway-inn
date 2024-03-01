@@ -171,7 +171,7 @@ Initially I wanted to inclue a 'rota' sheet which would outline the rota for the
 
 The Employee Database is stored on an on-site computer within the Railway Inn where they can access the information uploaded to it.
 
-# Techonlogies Used
+# Technologies Used
 
 - Python is the main technology that has been used to create the terminal window.
 - Google Sheets has been used to create and house the Employee Database.
