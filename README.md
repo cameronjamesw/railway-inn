@@ -238,6 +238,8 @@ The Application has been deployed from GitHub to Heroku by following the steps:
 
 - [This tutorial](https://www.codingninjas.com/studio/library/how-to-clear-a-screen-in-python) helped me utilise the OS Clear function within the os import library.
 
+- I used [LucidChart](https://www.lucidchart.com/) to help me create a flowchart that helped me visualise how my code would run.
+
 # Acknowledgements
 
 - I would like to thank my mentor Jubril Akolade for providing me with such succinct advise and guidance during my mentor sessions. This project was made so much easier with the help of AJ as his methodology when it came to tackling this project.
