@@ -227,4 +227,18 @@ The Application has been deployed from GitHub to Heroku by following the steps:
 
 # Credits
 
+- The slice function taken from W3Schools helped me get an index of the column values. Taken from [here](https://www.w3schools.com/python/ref_func_slice.asp), however I ended up altering this code and getting rid of the slice function. 
+
+- The Code Institute Tutoring Service who helped me create the 'not in' code within the letter and numeric validation functions.
+
+- [This video](https://www.youtube.com/watch?v=u51Zjlnui4Y) helped me understand and implement the Colorama Import.
+
+- The [pep8 validation service](https://pypi.org/project/pep8/) which I used and installed in order to validate my code. 
+
 # Acknowledgements
+
+- I would like to thank my mentor Jubril Akolade for providing me with such succinct advise and guidance during my mentor sessions. This project was made so much easier with the help of AJ as his methodology when it came to tackling this project.
+
+- I would like to thank the Code Institute Slack Community for helping me find a way to deploy my project to Heroku after pretty considerable difficulties in the beginning.
+
+- I would like to thank the Railway Inn, the local pub in my area, for inspiring me with this project and helping me find focus for this project. 
