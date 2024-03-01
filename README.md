@@ -1,6 +1,6 @@
 # The Railway Inn - Employee Portal
 
-Image
+![A screenshot of the landing page of the Employee Portal](assets/images/hero-ss.png)
 
 View the live site [here](https://railway-nn-employee-portal-da8a700a2d95.herokuapp.com/)
 
