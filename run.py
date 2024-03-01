@@ -481,9 +481,11 @@ def calculate_pay_before_tax(name, hours, wage, fname, lname):
 
 def calculate_taxes(pay, name, fname, lname):
     """
-    This function takes two parameters of gross pay and name.
+    This function takes the parameters of gross pay full-name, first-name and last-name.
     This function will calculate the income tax and national insurance of
     the employee in question.
+    There is validation within this function which ensure the user
+    enters a Y or N when entering the input.
     """
     tax = 0.2
     national_insurance = 0.1
@@ -532,6 +534,11 @@ def calculate_taxes(pay, name, fname, lname):
             return False
 
 def append_validation(inp, taxes):
+    """
+    This function validates the input of append data to
+    the database. If the user does not enter either Y or N
+    then it will throw an error.
+    """
 
     try:
         if inp == 'Y':
@@ -550,6 +557,10 @@ def append_validation(inp, taxes):
             return False
 
 def add_tax_list(fname, lname, pay, net_pay, income_tax, national_insurance_tax, total_tax):
+    """
+    This function takes all of the key tax information as
+    parameters and appends it to a list named employee tax info.
+    """
     employee_tax_info = []
 
     pay = f"£{pay:.2f}"
@@ -569,6 +580,12 @@ def add_tax_list(fname, lname, pay, net_pay, income_tax, national_insurance_tax,
     return employee_tax_info
 
 def append_employee_tax(taxes):
+    """
+    This funcion takes a parameter of taxes and appends it
+    to the taxes sheet within the google database.
+    It will also give the user the option of returning to the
+    main menuj.
+    """
 
     print(Fore.GREEN + 'Updating Employee Database..')
 
