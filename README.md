@@ -63,7 +63,11 @@ With the recent change of ownership of the Railway Inn, the new owners see it fi
 
 # Pre-Development
 
-Here is an image of the flowchart that I created prior to development to help me visualise how the project is going to run.
+I drafted up a flowchart on pen and paper so that I could visualise how my project was going to run. This helped me massively in thinking of the functions that I would need and just the overall logic of the application.
+
+![An image of a flowchart that I drew](assets/images/drawn-flowchart.jpg)
+
+I decided that I would use [LucidChart](https://www.lucidchart.com/) to tidy-up my flowchart so that it had a better presentation to it, as well as aesthetic. If it was easier to read and interpret, then my code would only benefit from it!
 
 ![An image of a flowchart that I have created](assets/images/Flowcharts.jpeg)
 
