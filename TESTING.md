@@ -65,7 +65,7 @@ There are only two instances within the code where data is pushed from the termi
 
 | Feature | Action | Expected Result | Actual Result | Pass |
 | ------- | ------ | --------------- | ------------- | ---- |
-| Create New Employee | ![Screenshot of creating a new employee](assets/images/create-employee-ss.png) | New employee data pushed to the Employee Database | ![Screenshot of the new employee in the database](assets/images/push-employee-ss.png) | Y |
+| Create New Employee | ![Screenshot of creating a new employee](assets/images/create-employee-ss.png) | New employee data pushed to the Employee Database | ![Screenshot of the new employee in the database](assets/images/push-new-employee-ss.png) | Y |
 | Calculate Pay | ![Screenshot of calculating pay](assets/images/calculate-pay-test-ss.png) | Calculated pay data pushed to the employee database | ![Screenshot of the calculated pay data in the database](assets/images/push-calc-pay-ss.png) | Y |
 ## Future Updates
 
