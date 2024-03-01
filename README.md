@@ -225,6 +225,8 @@ The Application has been deployed from GitHub to Heroku by following the steps:
 
 # Validation
 
+The project has been validated with [pep8 validation service](https://pypi.org/project/pep8/). The validation report returned no errors, however warnings regarding line length were unable to be rectified due to bugs within in the code resulting from this.
+
 # Bugs
 
 - A current bug that I am unsure how to fix right now is the issue of the Employee Database not updating. If the user creates an employee account and then tries to display said employee, the terminal will throw an error as it is trying to read the data from a not-updated spreadsheet.
