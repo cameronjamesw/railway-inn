@@ -67,5 +67,13 @@ There are only two instances within the code where data is pushed from the termi
 | ------- | ------ | --------------- | ------------- | ---- |
 | Create New Employee | ![Screenshot of creating a new employee](assets/images/create-employee-ss.png) | New employee data pushed to the Employee Database | ![Screenshot of the new employee in the database](assets/images/push-new-employee-ss.png) | Y |
 | Calculate Pay | ![Screenshot of calculating pay](assets/images/calculate-pay-test-ss.png) | Calculated pay data pushed to the employee database | ![Screenshot of the calculated pay data in the database](assets/images/push-calc-pay-ss.png) | Y |
+
 ## Future Updates
 
+After speaking with the manager of the Railway Inn, upon testing the portal together we have discussed potential future updates that could really improve the overall functionality of the employee portal. 
+
+- The first feature that we concluded was the option to delete an employee from the database which in doing so would then delete the employee from the Google Database too. This would ad more value to the portal asit would mean the manager would not have to manually delete from the Google Sheet.
+
+- The second feature that we discussed was the ability to update an employee on the portal which would then update on the Google Database too. For example, if an employee were to gain a promotion and get a wage increase, or an employee were to alter their contracted hours, there is currently no way of updating this through the portal. 
+
+- Finally, we discussed the ability of having a third page on the Google Database where the manager is able to upload the weekly rota for the employees. Then through accessing this rota, the portal is able to calculate the employee's pay without the manager having to input the hours that the employees have worked.
