@@ -4,9 +4,20 @@ Image
 
 View the live site [here](https://railway-nn-employee-portal-da8a700a2d95.herokuapp.com/)
 
+# Contents
+- [Introduction](#introduction)
+- [Manual Testing](#manual-testing)
+- [Browser Testing](#brower-testing)
+- [Google Sheets Testing](#google-sheets-testing)
+- [Future Updates](#future-updates)
+
+## Introduction 
+
 Once the portal was up and running with functionality, I began testing it for any potential and obscure errors so that in the event of catching any I was able to fix them.
 
 I went into the Railway Inn to speak with the manager and go through the employee portal with him. We tested it by implementing the current employees into the portal, and we then calculated their gross pay using the relevent options. One issue that we found is that due to the way the code has been written when retrieving the index values from the database, the last employee on the spreadsheet is not calculated. I fixed this within the code through adding +1 to the index values. 
+
+## Manual Testing
 
 The following tests were carried out to ensure that the Employee Portal was working correctly
 
@@ -34,4 +45,10 @@ The following tests were carried out to ensure that the Employee Portal was work
 | Hours Confirmation | Entered 'Y'/'N' | Displayed Relevent Outcome | Worked as expected |
 | Hours Confirmation | Entered other letter, number, space & special character | Raise Value Error | Worked as Expected |
 | Push Pay Data | Submitted Employee Pay Details | Appended row to Google Sheet | Worked as expected |
+
+## Brower Testing
+
+## Google Sheets Testing
+
+## Future Updates
 
