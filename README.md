@@ -31,8 +31,7 @@ The Railway Inn are an independent pub company based in the West-Midlands, Unite
 - [Technologies Used](#technologies-used)
 - [Resources](#resources)
   - [Libraries](#libraries)
-- [Testing](#testing)
-- [Future Updates](#future-updates)  
+- [Testing](#testing) 
 - [Validation](#validation)
 - [Deployment](#deployment)
   - [Heroku](#heroku)
@@ -192,8 +191,6 @@ The Employee Database is stored on an on-site computer within the Railway Inn wh
 # Testing
 
 Testing for the employee portal can be found [here](/TESTING.md)
-
-# Future Updates
 
 # Deployment
 
