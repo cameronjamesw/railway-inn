@@ -48,6 +48,15 @@ The following tests were carried out to ensure that the Employee Portal was work
 
 ## Brower Testing
 
+The Employee Portal was tested in the following browsers:
+
+| Browser | Action | Expected Result | Actual Result | Pass |
+| ------- | ------ | --------------- | ------------- | ---- |
+| Chrome | Select Option B | Show display Employee | ![A screenshot of the test in Google Chrome browser](assets/images/google-chrome-ss.png) | Y |
+| Safari | Select Option A | Show Create Employee | ![A screenshot of the test in Safari browser](assets/images/safari-ss.png) | N - Employee Portal in unresponsive in Safari |
+| Firefox | Select Option C | Show Calculate Employee Pay | ![A screenshot of the tes in a Firefox browser](assets/images/firefox-ss.png) | Y |
+| Edge | Select Option A | Show Create Employee | ![A screenshot of the test in a Microsoft Edge browser](assets/images/edge-ss.png) | Y |
+
 ## Google Sheets Testing
 
 ## Future Updates
