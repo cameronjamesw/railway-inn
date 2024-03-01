@@ -134,7 +134,7 @@ def display_create_employee():
     print(f"Wage = {wage}")
     full_name = f"{first_name} {last_name}"
 
-    while True:    
+    while True:
         if user_check(new_employee):
             break
 
@@ -148,7 +148,7 @@ def letter_validation(inp):
         if inp.isalpha() is not True:
             raise ValueError (
                 Fore.RED + f"Field must only contain characters [A-Z] or [a-z]. You entered {inp}."
-        )
+                )
     except ValueError as e:
         print(Fore.RED + f"\nInvalid data {e}. Please try again\n")
         return False
@@ -164,7 +164,7 @@ def numeric_validation(inp):
         if inp.isnumeric() is not True:
             raise ValueError (
                 Fore.RED + f"Field must only contain characters [0-9]. You entered {inp}."
-                            
+ 
             )
     except ValueError as e:
         print(Fore.RED + f"\nInvalid Data {e}. Please try again\n")
@@ -299,6 +299,7 @@ def check_name(name, l_name, variable):
     This function takes the full name from concatenate_inputs function,
     and checks to see if the name exists in the database.
     """
+
     database_names = []
     for fname, lname in zip(first_name_column, second_name_column):
         full_name = f"{fname} {lname}"
@@ -524,8 +525,7 @@ def calculate_taxes(pay, name, fname, lname):
     print(Fore.YELLOW + f'NI Tax = {national_insurance_tax}')
     print(Fore.YELLOW + f'Total Tax = {total_tax}')
 
-    taxes = add_tax_list(fname, lname, pay, net_pay, income_tax, 
-    national_insurance_tax, total_tax)
+    taxes = add_tax_list(fname, lname, pay, net_pay, income_tax, national_insurance_tax, total_tax)
 
     while True:
         user_input = input('\nDo you want to add this data to the Employee Database? (Y/N): \n')
@@ -570,7 +570,7 @@ def append_validation(inp, taxes):
             main_menu_input()
             return True
         else:
-            raise ValueError (
+            raise ValueError(
                 Fore.RED + f'please enter a value of "Y" or "N", you have entered {inp}'
             )
             return False
@@ -586,11 +586,11 @@ def add_tax_list(fname, lname, pay, net_pay, income_tax, national_insurance_tax,
     """
     employee_tax_info = []
 
-    pay = f"£{pay:.2f}"
-    net_pay = f"£{net_pay:.2f}"
-    income_tax = f"£{income_tax:.2f}"
-    national_insurance_tax = f"£{national_insurance_tax:.2f}"
-    total_tax = f"£{total_tax:.2f}"
+    pay = f"£{pay: .2f}"
+    net_pay = f"£{net_pay: .2f}"
+    income_tax = f"£{income_tax: .2f}"
+    national_insurance_tax = f"£{national_insurance_tax: .2f}"
+    total_tax = f"£{total_tax: .2f}"
 
     employee_tax_info.append(fname)
     employee_tax_info.append(lname)
@@ -601,6 +601,7 @@ def add_tax_list(fname, lname, pay, net_pay, income_tax, national_insurance_tax,
     employee_tax_info.append(total_tax)
 
     return employee_tax_info
+
 
 def append_employee_tax(taxes):
     """
