@@ -59,5 +59,13 @@ The Employee Portal was tested in the following browsers:
 
 ## Google Sheets Testing
 
+A great deal of testing has been conducted regarding pushing data to the Google Sheets Employee Database.
+
+There are only two instances within the code where data is pushed from the termianl to the Google Sheets so thorough testing was able to be carried out.
+
+| Feature | Action | Expected Result | Actual Result | Pass |
+| ------- | ------ | --------------- | ------------- | ---- |
+| Create New Employee | ![Screenshot of creating a new employee](assets/images/create-employee-ss.png) | New employee data pushed to the Employee Database | ![Screenshot of the new employee in the database](assets/images/push-employee-ss.png) | Y |
+| Calculate Pay | ![Screenshot of calculating pay](assets/images/calculate-pay-test-ss.png) | Calculated pay data pushed to the employee database | ![Screenshot of the calculated pay data in the database](assets/images/push-calc-pay-ss.png) | Y |
 ## Future Updates
 
