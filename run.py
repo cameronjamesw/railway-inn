@@ -47,25 +47,28 @@ def get_user_option():
         user_input = user_input.upper()
 
         if validate_user_option_input(user_input):
-            print( Fore.GREEN +'Getting the desired option... \n')    
+            print(Fore.GREEN + 'Getting the desired option... \n')
             display_user_option(user_input)
             break
 
+
 def validate_user_option_input(inp):
     """
-    This function checks the option input that the user has 
-    input, if it is not a letter between A - D then it returns
-    and error
+    This function checks the option input that the user has
+    input, if it is not a letter between A - D then
+    it returns an error
     """
     try:
         if inp not in ['A', 'B', 'C']:
             raise ValueError(
-                Fore.RED + f"Please enter a value of A, B or C. You entered {inp}"
+                Fore.RED + f"Please enter a value of A, B or C. "
+                            "You entered {inp}"
             )
     except ValueError as e:
-        print( Fore.RED + f"Invalid data: {e}. Please try again\n")
+        print(Fore.RED + f"Invalid data: {e}. Please try again\n")
         return False
     return True
+
 
 def display_user_option(inp):
     """
@@ -81,12 +84,14 @@ def display_user_option(inp):
     elif inp == 'C':
         get_employee_name()
 
+
 def display_create_employee():
     new_employee = []
 
     print('Create Employee Selected\n')
     while True:
-        first_name = input(Fore.WHITE + "\nPlease enter the first name of your new employee: \n")
+        first_name = input(Fore.WHITE + "\nPlease enter the first name of your"
+                          "new employee: \n")
         first_name = first_name.capitalize()
         new_employee.append(first_name)
 
@@ -94,7 +99,8 @@ def display_create_employee():
             break
 
     while True:
-        last_name = input(Fore.WHITE + "\nPlease enter the last name of your new employee: \n")
+        last_name = input(Fore.WHITE + "\nPlease enter the last name of your"
+                         "new employee: \n")
         last_name = last_name.capitalize()
         new_employee.append(last_name)
 
@@ -102,7 +108,8 @@ def display_create_employee():
             break
 
     while True:
-        employee_no = input(Fore.WHITE + "\nPlease enter the employee number: \n")
+        employee_no = input(Fore.WHITE + "\nPlease enter the "
+                           "employee number: \n")
 
         if numeric_validation(employee_no):
             employee_no = f"#{employee_no}"
@@ -110,15 +117,17 @@ def display_create_employee():
             break
 
     while True:
-        contract_hours = input(Fore.WHITE + "\nPlease enter the contracted hours of your new employee: \n")
+        contract_hours = input(Fore.WHITE + "\nPlease enter the contracted "
+                              "hours of your new employee: \n")
         new_employee.append(contract_hours)
 
         if numeric_validation(contract_hours):
             break
 
     while True:
-        wage = input(Fore.WHITE + "\nPlease enter the wage of your new employee: \n")
-        
+        wage = input(Fore.WHITE + "\nPlease enter the wage of "
+                    "your new employee: \n")
+
         if numeric_validation(wage):
             wage = f"{wage}"
             new_employee.append(wage)
@@ -129,12 +138,12 @@ def display_create_employee():
     print(f"Employee No. = {employee_no}")
     print(f"Contracted Hours = {contract_hours} hours per week")
     print(f"Wage = {wage}")
-
     full_name = f"{first_name} {last_name}"
 
     while True:    
         if user_check(new_employee):
             break
+
 
 def letter_validation(inp):
     """
@@ -142,14 +151,16 @@ def letter_validation(inp):
     entered are alphabetic or not
     """
     try:
-        if inp.isalpha() != True:
+        if inp.isalpha() is not True:
             raise ValueError (
-                Fore.RED + f"Field must only contain characters [A-Z] or [a-z]. You entered {inp}."
+                Fore.RED + f"Field must only contain characters [A-Z] or [a-z]." 
+                            "You entered {inp}."
         )
     except ValueError as e:
         print(Fore.RED + f"\nInvalid data {e}. Please try again\n")
         return False
     return True
+
 
 def numeric_validation(inp):
     """
@@ -157,14 +168,16 @@ def numeric_validation(inp):
     entered are numeric or not
     """
     try:
-        if inp.isnumeric() != True:
+        if inp.isnumeric() is not True:
             raise ValueError (
-                Fore.RED + f"Field must only contain characters [0-9]. You entered {inp}."
+                Fore.RED + f"Field must only contain characters [0-9]."
+                            "You entered {inp}."
             )
     except ValueError as e:
         print(Fore.RED + f"\nInvalid Data {e}. Please try again\n")
         return False
     return True
+
 
 def user_check(data):
     """
@@ -190,6 +203,7 @@ def user_check(data):
         print(Fore.RED + f"Invalid Data {e}, you entered {user_check}")
         return False
 
+
 def push_new_employee(employee_data):
     """
     This function takes the newly created employee
@@ -198,15 +212,17 @@ def push_new_employee(employee_data):
     print(Fore.GREEN + '\nUpdating employee database...\n')
     employee_page.append_row(employee_data)
     print(Fore.GREEN + 'Employee database updated!\n')
-
     main_menu_input()
+
 
 def main_menu_input():
     while True:
-        user_input = input(Fore.YELLOW + '\nReturn to the main menu? (Y/N): \n')
+        user_input = input(Fore.YELLOW + '\nReturn to the main '
+                    'menu? (Y/N): \n')
 
         if return_to_main_menu(user_input):
             break
+
 
 def return_to_main_menu(inp):
     """
@@ -222,7 +238,8 @@ def return_to_main_menu(inp):
             get_user_option()
             return True
         elif inp == 'N':
-            confirm = input(Fore.YELLOW + 'Are you sure you want to exit the application? (Y/N): \n')
+            confirm = input(Fore.YELLOW + 'Are you sure you want to '
+                            'exit the application? (Y/N): \n')
             confirm = confirm.upper()
             try:
                 if confirm == 'Y':
@@ -234,19 +251,22 @@ def return_to_main_menu(inp):
                     return False
                 else:
                     raise ValueError (
-                    Fore.RED + f'Please enter a value of "Y" or "N", you entered {confirm}'
+                    Fore.RED + f'Please enter a value of "Y" or'
+                                ' "N", you entered {confirm}'
                 )
             except ValueError as e:
                 print(Fore.RED + f"Invalid Data {e}, please try again")
                 return False
         else:
             raise ValueError (
-                Fore.RED + f'Please enter a value of "Y" or "N", you entered {inp}'
+                Fore.RED + f'Please enter a value of "Y" or '
+                            '"N", you entered {inp}'
             )
             return True
     except ValueError as e:
         print(Fore.RED + f"Invalid Data: {e}, please try again.")
         return False
+
 
 def display_employee():
     """
@@ -255,14 +275,16 @@ def display_employee():
     last name.
     """
     while True:
-        print(Fore.WHITE + '\nPlease enter the first name of the employee you wish to display..')
+        print(Fore.WHITE + '\nPlease enter the first name of the '
+                'employee you wish to display..')
         f_name = input('Employee First Name: \n')
         f_name = f_name.capitalize()
         if letter_validation(f_name):
             break
 
     while True:
-        print(Fore.WHITE + '\nPlease enter the last name of the employee you wish to display..')
+        print(Fore.WHITE + '\nPlease enter the last name of the '
+                            'employee you wish to display..')
         l_name = input('Employee Last Name: \n')
         l_name = l_name.capitalize()
         if letter_validation(l_name):
@@ -274,6 +296,7 @@ def display_employee():
     if check_name(concat_input, l_name, display_variable):
         main_menu_input()
 
+
 def concatonate_inputs(input1, input2):
     """
     This function takes the two inputs from update_employees
@@ -283,13 +306,13 @@ def concatonate_inputs(input1, input2):
     full_name = f"{input1} {input2}"
     return full_name
 
+
 def check_name(name, l_name, variable):
     """
     This function takes the full name from concatenate_inputs function,
     and checks to see if the name exists in the database.
     """
     database_names = []
-    
     for fname, lname in zip(first_name_column, second_name_column):
         full_name = f"{fname} {lname}"
         database_names.append(full_name)
@@ -298,12 +321,13 @@ def check_name(name, l_name, variable):
         if name in database_names:
             display_employee_details(l_name)
             return True
-    
+
         else:
             raise ValueError (
                 Fore.RED + f'{name} does not exist in the Employee Database'
             )
             return False
+
     except ValueError as e:
         print(Fore.RED + f'\nInvalid data {e}. Please try another name.')
    
@@ -312,6 +336,7 @@ def check_name(name, l_name, variable):
         while True:
             if try_again(variable):
                 break    
+
 
 def try_again(variable):
     """
@@ -334,11 +359,13 @@ def try_again(variable):
             return True
         else:
             raise ValueError (
-                Fore.RED + f'Please enter a value of "Y" or "N", you entered {user_input}'
+                Fore.RED + f'Please enter a value of "Y" or "N",'
+                ' you entered {user_input}'
                 )
     except ValueError as e:
         print(Fore.RED + f'Invalid input: {e}. Please try again')
         return False
+
 
 def display_employee_details(lname):
     """
@@ -364,6 +391,7 @@ def display_employee_details(lname):
             )
     except ValueError as e:
         print(Fore.RED + f'Invalid name: {e}. Please enter another name')
+
 
 def get_employee_name():
     """
@@ -393,7 +421,7 @@ def get_employee_name():
     if check_last_name(l_name, concat_input):
         check_name(concat_input, l_name, calculate_variable)
         while True:
-             if get_employee_hours(concat_input, l_name, f_name):
+            if get_employee_hours(concat_input, l_name, f_name):
                 break
     else:
         try_again(calculate_variable)
@@ -410,6 +438,7 @@ def check_last_name(l_name, name):
     except ValueError as e:
         (Fore.RED + f'Invalid Data: {e}, please try again.')
 
+
 def get_wage(lname):
     """
     This function will specifically get the wage of
@@ -420,6 +449,7 @@ def get_wage(lname):
     user_data = data[index]
     wage = user_data[4]
     return wage
+
 
 def get_hours(lname):
     """
@@ -432,6 +462,7 @@ def get_hours(lname):
     hours = user_data[3]
     return hours
 
+
 def get_employee_hours(name, lname, fname):
     """
     This function will ask the user if the employee worked their
@@ -443,7 +474,8 @@ def get_employee_hours(name, lname, fname):
     hours = int(hours)
 
     while True:
-        print(Fore.WHITE + f'\n{name} is contracted to work {hours} hours per week ({hours * 4} hours per month).')
+        print(Fore.WHITE + f'\n{name} is contracted to work {hours} hours per '
+                            'week ({hours * 4} hours per month).')
         user_input = input(f'Did {name} work their contracted hours? (Y/N): \n')
         user_input = user_input.upper()
         if letter_validation(user_input):
@@ -461,12 +493,14 @@ def get_employee_hours(name, lname, fname):
             return True
         else:
             raise ValueError (
-                print(Fore.RED + f'Please enter a value of "Y" or "N", you entered {user_input}')
+                print(Fore.RED + f'Please enter a value of "Y" or "N", '
+                                'you entered {user_input}')
             )
             return False
     except ValueError as e:
         print(Fore.RED + f'Invalid input {e}. Please try again.')
         return False
+
 
 def calculate_pay_before_tax(name, hours, wage, fname, lname):
     """
@@ -479,9 +513,11 @@ def calculate_pay_before_tax(name, hours, wage, fname, lname):
     gross_income = wage * hours
     calculate_taxes(gross_income, name, fname, lname)
 
+
 def calculate_taxes(pay, name, fname, lname):
     """
-    This function takes the parameters of gross pay full-name, first-name and last-name.
+    This function takes the parameters of gross pay full-name,
+    first-name and last-name.
     This function will calculate the income tax and national insurance of
     the employee in question.
     There is validation within this function which ensure the user
@@ -495,7 +531,7 @@ def calculate_taxes(pay, name, fname, lname):
     total_tax = national_insurance_tax + income_tax
     net_pay = pay - total_tax
 
-    print(Fore.GREEN + f"\n{name}'s income details are as follows:")
+    print(Fore.GREEN + f"\n{name}'s income details are as follows: ")
     print(Fore.WHITE + f'First Name = {fname}')
     print(Fore.WHITE + f'Last Name = {lname}')
     print(Fore.WHITE + f'Gross Income = {pay}')
@@ -504,10 +540,12 @@ def calculate_taxes(pay, name, fname, lname):
     print(Fore.YELLOW + f'NI Tax = {national_insurance_tax}')
     print(Fore.YELLOW + f'Total Tax = {total_tax}')
 
-    taxes = add_tax_list(fname, lname, pay, net_pay, income_tax, national_insurance_tax, total_tax)
+    taxes = add_tax_list(fname, lname, pay, net_pay, income_tax, 
+    national_insurance_tax, total_tax)
 
     while True:
-        user_input = input('\nDo you want to add this data to the Employee Database? (Y/N): \n')
+        user_input = input('\nDo you want to add this data to '
+                    'the Employee Database? (Y/N): \n')
         user_input = user_input.upper()
         
         try:
@@ -525,13 +563,15 @@ def calculate_taxes(pay, name, fname, lname):
                 return True
             else:
                 raise ValueError (
-                    print(Fore.RED + f'Please enter a value of "Y" or "N", you entered {user_input}')
+                    print(Fore.RED + f'Please enter a value of "Y" or '
+                        '"N", you entered {user_input}')
                     )
                 return False
         except ValueError as e:
             print(Fore.RED + f'Invalid input {e}. Please try again.')
             calculate_taxes(pay, name, fname, lname)
             return False
+
 
 def append_validation(inp, taxes):
     """
@@ -540,8 +580,8 @@ def append_validation(inp, taxes):
     then it will throw an error.
     """
 
-    try:
-        if inp == 'Y':
+    try: 
+        if inp == 'Y': 
             append_employee_tax(taxes)
             return True
         elif inp == 'N':
@@ -549,14 +589,17 @@ def append_validation(inp, taxes):
             return True
         else:
             raise ValueError (
-                Fore.RED + f'please enter a value of "Y" or "N", you have entered {inp}'
+                Fore.RED + f'please enter a value of "Y" or "N", '
+                            'you have entered {inp}'
             )
             return False
     except ValueError as e:
             print(Fore.RED + f'Invalid Data: {e}. Please try again')
             return False
 
-def add_tax_list(fname, lname, pay, net_pay, income_tax, national_insurance_tax, total_tax):
+
+def add_tax_list(fname, lname, pay, net_pay, income_tax, 
+                national_insurance_tax, total_tax):
     """
     This function takes all of the key tax information as
     parameters and appends it to a list named employee tax info.
